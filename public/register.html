@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="Best sports site at the lowest cost possible">
+  <meta name="keywords" content="sports,website,low cost">
+  <meta name="author" content="Pedro Monteiro, Miguel Ramos, José Borges">
+  <title>FootFlex | Payment Details</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css">
+  <link rel="stylesheet" href="stylesheets/register.css">
+  <link rel="icon" href="images/football.png">
+</head>
+
+<body>
+  <script src="javascripts/login.js"></script>
+  <div class="wrapper">
+    <div class="payment">
+      <div class="payment-logo">
+        <p>FF</p>
+      </div>
+      <h2>Payment Gateway</h2>
+      <div class="form">
+        <div class="card space icon-relative">
+          <label class="label">Repeat Password:</label>
+          <input type="text" class="input" placeholder="Repeat Password" id="pass">
+          <i class="fas fa-key"></i>
+        </div>
+        <div class="card space icon-relative">
+          <label class="label">IBAN:</label>
+          <input type="text" class="input" data-mask="0000 0000 0000 0000" placeholder="Insert IBAN" id="iban">
+          <i class="far fa-credit-card"></i>
+        </div>
+        <div class="card space icon-relative">
+          <form action="#" class="customSelect">
+            <div class="row">
+              <label class="label">Please select the package:</label>
+            </div>
+            <div class="row">
+              <div class="select">
+                <select id="select" onchange="getinfo()">
+                  <option value="All in One">&#160;&#160;All in one</option>
+                  <option value="Sports">&#160;&#160;Sports</option>
+                  <option value="League">&#160;&#160;League</option>
+                </select>
+                <i class="fas fa-arrow-down"></i>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="card space icon-relative">
+            <form action="#" class="customSelect">
+                <div class="row">
+                  <label class="label">If you chosen Sports or League please choose one option:</label>
+                </div>
+                <div class="row">
+                  <div class="select">
+                    <select id="change">
+                    </select>
+                  </div>
+                </div>
+              </form>  
+        </div>
+        <button class="btn" onclick="sub()">Submit</button>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

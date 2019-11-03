@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Best sports site at the lowest cost possible">
+    <meta name="keywords" content="sports,website,low cost">
+    <meta name="author" content="Pedro Monteiro, Miguel Ramos, José Borges">
+    <title>FootFlex | User Page</title>
+    <link rel="stylesheet" href="stylesheets/user.css">
+    <link rel="icon" href="images/football.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <script src="javascripts/swap.js"></script>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1 onclick="back()"><span class="highlight">Foot</span>Flex</h1>
+            </div>
+        </div>
+    </header>
+    <div class="main">
+        <h2 class="header"> Account </h2>
+        <div class="grupo">
+            <label for="username">Username: </label>
+            <br>
+            <input type="text" id="username" value="Pedro" required="">
+        </div>
+        <div class="grupo">
+            <label for="email">Email: </label>
+            <br>
+            <input type="email" id="email" value="50037086@iade.pt" required="">
+        </div>
+        <div class="grupo">
+            <label for="newpass">New Password: </label>
+            <br>
+            <input type="password" id="newpass" value="" required="">
+        </div>
+        <hr>
+        <div class="grupo">
+            <input type="password" class="pass" placeholder="Enter Current Password" required="">
+            <button type="button" class="btn">Update Account</button>
+        </div>
+    </div>
+    <div class="sidenav">
+        <h4 class="heading">User Settings</h4>
+        <div class="card">
+            <img src="images/user.png" class="profile-image" height="128" width="128">
+            <h1>Pedro</h1>
+            <p class="pacote">Chosen Plan:</p>
+            <p class="tipo">All in One</p>
+            <a href="#" class="btn-user">Delete Plan</a>
+        </div>
+    </div>
+    <footer>
+        <p>FootFlex, Copyright &copy; 2019</p>
+    </footer>
+</body>
+
+</html>

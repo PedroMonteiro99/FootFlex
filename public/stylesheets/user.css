@@ -1,0 +1,239 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    padding: 0;
+    margin:0;
+    background-color: #f4f4f4;
+    display: grid;
+    grid-template-areas: 
+     'header header header'
+     'sidenav main main'
+     'footer footer footer';
+    grid-template-columns: auto auto 200px;
+ 
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    background: #35424a;
+    color: black;
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom: #e8491d 3px solid;
+    grid-area: header;
+}
+
+header a {
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+header li{
+    display: inline;
+    padding: 0 20px 0 20px;
+}
+
+header #branding{
+    float: left;
+}
+
+header #branding h1{
+    margin-left: 30px;
+    margin-top: 0;
+    color: #e8491d;
+    cursor: pointer;
+    grid-area: header;
+}
+
+header nav{
+    float: right;
+    margin-top: 10px;
+}
+
+header .highlight{
+    color:#ffffff;
+    font-weight: bold;
+}
+
+header .current a{
+    color: #e8491d;
+    font-weight: bold;
+}
+
+header a:hover{
+    color: #cccccc;
+    font-weight: bold;
+}
+
+footer{
+    padding: 20px;
+    margin-top: 20px;
+    color: #ffffff;
+    background-color: #e8491d;
+    text-align: center;
+    grid-area: footer;
+}
+
+input[type=text],[type=email],[type=password], select {
+    font-size: 15px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    grid-area: main;
+}
+
+.grupo{
+    margin: 0;
+    padding: 0;
+    grid-area: main;
+    margin-left: -350px;
+}
+
+.header{
+    margin-left: -350px;
+}
+
+hr{
+    margin-left: -350px;
+    width: 200px;
+}
+
+.main {
+    font-size: 20px;
+    padding: 0px 10px;
+    grid-area: main;
+}
+
+.btn{
+    widows: 85%;
+    padding: 10px 30px;
+    cursor: pointer;
+    margin: auto;
+    background: #e8491d;
+    color: #ffffff;
+    text-align: center;
+    font-size: 15px;
+    border: black 1px solid;
+    outline: none;
+    border-radius: 30px;
+}
+
+.heading{
+    text-transform: uppercase;
+    font-size: 20px;
+    letter-spacing: 3px;
+    margin-right: -3px;
+    margin-bottom: 5rem;
+    text-align: center;
+    color: #ffffff;
+    position: relative;
+}
+
+.heading::after{
+    content: "";
+    width: 80%;
+    height: .2rem;
+    background-color: #45e19f;
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translate(-50%);
+    border-radius: 2rem;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center ;
+}
+
+.profile-image{
+    background-color: white ;
+    object-fit: scale-down;
+    border-radius: 50%;
+    margin-top:-60px;
+    z-index: 999;
+    border: 4px solid #45e19f;
+}
+
+.card h1{
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+.pacote{
+    font-size: 1rem;
+    text-align: center;
+    color: #ffffff;
+}
+
+.tipo{
+    font-size: 1.2rem;
+    text-align: center;
+    color: #45e19f;
+}
+
+.card .btn-user{
+    color: #ffffff;
+    text-align: center;
+    background-color:red ;
+    border-radius: 2rem;
+    font-size: 18px;
+    transition: all 0.5s;
+    width: 150px;
+    height: 25px;
+}
+
+.card .btn-user:hover{
+    transform: translateY(-2px);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.card .btn-user:active{
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* Sidebar*/
+.sidenav {
+    height: 530px;
+    width: 240px;
+    position: relative;
+    z-index: 1;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+    grid-area: sidenav;
+}
+  
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    border: none;
+    background: none;
+    width:100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+}
+  
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover {
+    color: #f1f1f1;
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Best sports site at the lowest cost possible">
+    <meta name="keywords" content="sports,website,low cost">
+    <meta name="author" content="Pedro Monteiro, Miguel Ramos, José Borges">
+    <title>FootFlex | Main Page</title>
+    <link rel="stylesheet" href="stylesheets/main.css">
+    <link rel="icon" href="images/football.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><span class="highlight">Foot</span>Flex</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li class="current">
+                        <a href="user.html">User</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="main">
+        <h2>Latest Results</h2>
+        <table id="table">
+            <tr>
+                <th>Home Team</th>
+                <th>Away Team</th>
+                <th>Final Result</th>
+            </tr>
+            <tr>
+                <td>Juventus</td>
+                <td>Atlético de Madrid</td>
+                <td>2 v 2</td>
+            </tr>
+            <tr>
+                <td>Tottenham</td>
+                <td>Bayern</td>
+                <td>2 v 7</td>
+            </tr>
+            <tr>
+                <td>Sporting</td>
+                <td>Aves</td>
+                <td>2 v 2</td>
+            </tr>
+        </table>
+    </div>
+    <div class="sponsors">
+        
+    </div>
+    <div class="sidenav">
+        <a href="live.html">LIVE 🔴</a>
+        <button class="dropdown-btn">Football
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+            <a href="nos.html">Liga Nos</a>
+            <a href="premier.html">Premier League</a>
+            <a href="laliga.html">La Liga</a>
+        </div>
+        <button class="dropdown-btn">Basketball
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+            <a href="nba.html">NBA</a>
+            <a href="cba.html">Chinese League</a>
+            <a href="endesa.html">Liga Endesa</a>
+        </div>
+        <button class="dropdown-btn">Tennis
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+            <a href="atp.html">ATP Circuit</a>
+            <a href="wta.html">WTA Circuit</a>  
+        </div >
+        <a href="clubs.html">My Clubs ⭐</a>  
+    </div>
+    <script>
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+
+        for (i = 0; i < dropdown.length; i++) {
+            dropdown[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var dropdownContent = this.nextElementSibling;
+                if (dropdownContent.style.display === "block") {
+                    dropdownContent.style.display = "none";
+                } else {
+                    dropdownContent.style.display = "block";
+                }
+            });
+        }
+    </script>
+
+    <footer>
+        <p>FootFlex, Copyright &copy; 2019</p>
+    </footer>
+</body>
+
+</html>
