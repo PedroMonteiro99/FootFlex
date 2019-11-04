@@ -215,10 +215,11 @@ $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventspastleague.php?id=438
     $('#nba_02').append(last_games);
 });
 
-//ATP
-$.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=4464", function (data) { //ATP Next Games
+//NHL
+$.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=4380", function (data) { //NHL Next Games
     var next_games = '';
-    var i = 0;
+    var i = 0;~
+    console.log(data)
     for (var i = 0; i < data.events.length; i++) {
         next_games += '<tr>';
         next_games += '<td>' + data.events[i].dateEvent + '</td>';
@@ -226,14 +227,14 @@ $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=446
         next_games += '<td>' + data.events[i].strAwayTeam + '</td>';
         next_games += "<td><button>Buy Ticket</button></td>"
     }
-    $('#nba_01').append(next_games);
+    $('#nhl_01').append(next_games);
 
-    $('#nba_01 tbody').on('click', 'button', function () {
+    $('#nhl_01 tbody').on('click', 'button', function () {
         window.open('WebMap/index.html', '_blank', 'height=100', 'width=400')
     });
 });
 
-$.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventspastleague.php?id=4464", function (data) { //ATP Past Games
+$.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventspastleague.php?id=4380", function (data) { //NHL Past Games
     var last_games = '';
     var i = 0;
     for (var i = 0; i < data.events.length; i++) {
@@ -243,7 +244,39 @@ $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventspastleague.php?id=446
         last_games += '<td>' + data.events[i].strAwayTeam + '</td>';
         last_games += '<td>' + data.events[i].intHomeScore+' v '+data.events[i].intAwayScore + '</td>';
     }
-    $('#nba_02').append(last_games);
+    $('#nhl_02').append(last_games);
+});
+
+//UK Elite League
+$.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=4381", function (data) { //UK Elite League Next Games
+    var next_games = '';
+    var i = 0;~
+    console.log(data)
+    for (var i = 0; i < data.events.length; i++) {
+        next_games += '<tr>';
+        next_games += '<td>' + data.events[i].dateEvent + '</td>';
+        next_games += '<td>' + data.events[i].strHomeTeam + '</td>';
+        next_games += '<td>' + data.events[i].strAwayTeam + '</td>';
+        next_games += "<td><button>Buy Ticket</button></td>"
+    }
+    $('#elite_01').append(next_games);
+
+    $('#elite_01 tbody').on('click', 'button', function () {
+        window.open('WebMap/index.html', '_blank', 'height=100', 'width=400')
+    });
+});
+
+$.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventspastleague.php?id=4381", function (data) { //UK Elite League Past Games
+    var last_games = '';
+    var i = 0;
+    for (var i = 0; i < data.events.length; i++) {
+        last_games += '<tr>';
+        last_games += '<td>' + data.events[i].dateEvent + '</td>';
+        last_games += '<td>' + data.events[i].strHomeTeam + '</td>';
+        last_games += '<td>' + data.events[i].strAwayTeam + '</td>';
+        last_games += '<td>' + data.events[i].intHomeScore+' v '+data.events[i].intAwayScore + '</td>';
+    }
+    $('#elite_02').append(last_games);
 });
 
 //Live Games
