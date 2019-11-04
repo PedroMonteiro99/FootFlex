@@ -183,6 +183,69 @@ $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventspastleague.php?id=440
     }
     $('#endesa_02').append(last_games);
 });
+
+//NBA
+$.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=4387", function (data) { //NBA Next Games
+    var next_games = '';
+    var i = 0;
+    for (var i = 0; i < data.events.length; i++) {
+        next_games += '<tr>';
+        next_games += '<td>' + data.events[i].dateEvent + '</td>';
+        next_games += '<td>' + data.events[i].strHomeTeam + '</td>';
+        next_games += '<td>' + data.events[i].strAwayTeam + '</td>';
+        next_games += "<td><button>Buy Ticket</button></td>"
+    }
+    $('#nba_01').append(next_games);
+
+    $('#nba_01 tbody').on('click', 'button', function () {
+        window.open('WebMap/index.html', '_blank', 'height=100', 'width=400')
+    });
+});
+
+$.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventspastleague.php?id=4387", function (data) { //NBA Past Games
+    var last_games = '';
+    var i = 0;
+    for (var i = 0; i < data.events.length; i++) {
+        last_games += '<tr>';
+        last_games += '<td>' + data.events[i].dateEvent + '</td>';
+        last_games += '<td>' + data.events[i].strHomeTeam + '</td>';
+        last_games += '<td>' + data.events[i].strAwayTeam + '</td>';
+        last_games += '<td>' + data.events[i].intHomeScore+' v '+data.events[i].intAwayScore + '</td>';
+    }
+    $('#nba_02').append(last_games);
+});
+
+//ATP
+$.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=4464", function (data) { //ATP Next Games
+    var next_games = '';
+    var i = 0;
+    for (var i = 0; i < data.events.length; i++) {
+        next_games += '<tr>';
+        next_games += '<td>' + data.events[i].dateEvent + '</td>';
+        next_games += '<td>' + data.events[i].strHomeTeam + '</td>';
+        next_games += '<td>' + data.events[i].strAwayTeam + '</td>';
+        next_games += "<td><button>Buy Ticket</button></td>"
+    }
+    $('#nba_01').append(next_games);
+
+    $('#nba_01 tbody').on('click', 'button', function () {
+        window.open('WebMap/index.html', '_blank', 'height=100', 'width=400')
+    });
+});
+
+$.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventspastleague.php?id=4464", function (data) { //ATP Past Games
+    var last_games = '';
+    var i = 0;
+    for (var i = 0; i < data.events.length; i++) {
+        last_games += '<tr>';
+        last_games += '<td>' + data.events[i].dateEvent + '</td>';
+        last_games += '<td>' + data.events[i].strHomeTeam + '</td>';
+        last_games += '<td>' + data.events[i].strAwayTeam + '</td>';
+        last_games += '<td>' + data.events[i].intHomeScore+' v '+data.events[i].intAwayScore + '</td>';
+    }
+    $('#nba_02').append(last_games);
+});
+
 //Live Games
 $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsday.php?d=2019-11-02&s=Soccer&l=Portuguese%20Primeira%20Liga", function (data) { //Liga Nos Live Games
     var live_games = '';
