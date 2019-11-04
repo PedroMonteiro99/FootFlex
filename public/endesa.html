@@ -11,10 +11,11 @@
     <link rel="stylesheet" href="stylesheets/sports.css">
     <link rel="icon" href="images/football.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
-    <script src="javascripts/swap.js"></script>
+    <script src="javascripts/games.js"></script>
     <header>
         <div class="container">
             <div id="branding">
@@ -31,8 +32,8 @@
     </header>
     <div class="main">
         <h2>Future Games</h2>
-        <table class="table-content">
-            <caption><b>Round 5</b></caption>
+        <table class="table-content" id="endesa_01">
+            <caption><b>Next Games</b></caption>
             <thead>
                 <tr>
                     <th>Date</th>
@@ -42,61 +43,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>26/10</td>
-                    <td>Basket Zaragoza</td>
-                    <td>Bilbao</td>
-                    <td><button onclick="window.open('WebMap/index.html','_blank','height=100','width=400')">Buy Ticket</button></td>
-                </tr>
-                <tr>
-                    <td>26/10</td>
-                    <td>Obradoiro CAB</td>
-                    <td>Real Madrid</td>
-                    <td><button onclick="window.open('WebMap/index.html','_blank','height=100','width=400')">Buy Ticket</button></td>
-                </tr>
-                <tr>
-                    <td>28/10</td>
-                    <td>Joventut Badalona</td>
-                    <td>Estudiantes</td>
-                    <td><button onclick="window.open('WebMap/index.html','_blank','height=100','width=400')">Buy Ticket</button></td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table-content">
-            <caption><b>Round 6</b></caption>
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Home Team</th>
-                    <th>Away Team</th>
-                    <th>Tickets</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>30/10</td>
-                    <td>Gran Canaria</td>
-                    <td>Joventut Badalona</td>
-                    <td><button onclick="window.open('WebMap/index.html','_blank','height=100','width=400')">Buy Ticket</button></td>
-                </tr>
-                <tr>
-                    <td>30/10</td>
-                    <td>Murcia</td>
-                    <td>Obradoiro CAB</td>
-                    <td><button onclick="window.open('WebMap/index.html','_blank','height=100','width=400')">Buy Ticket</button></td>
-                </tr>
-                <tr>
-                    <td>31/10</td>
-                    <td>Unicaja</td>
-                    <td>Valencia</td>
-                    <td><button onclick="window.open('WebMap/index.html','_blank','height=100','width=400')">Buy Ticket</button></td>
-                </tr>
+                
             </tbody>
         </table>
         <br>
         <h2>Jogos já Decorridos</h2>
-        <table class="table-content">
-            <caption><b>Round 3</b></caption>
+        <table class="table-content" id="endesa_02">
+            <caption><b>Last 15 Games</b></caption>
             <thead>
                 <tr>
                     <th>Date</th>
@@ -106,55 +59,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>28/09</td>
-                    <td>Tenerife</td>
-                    <td>Real Madrid</td>
-                    <td>71 X 76</td>
-                </tr>
-                <tr>
-                    <td>29/09</td>
-                    <td>MoraBanc Andorra</td>
-                    <td>Barcelona</td>
-                    <td>86 X 84</td>
-                </tr>
-                <tr>
-                    <td>30/09</td>
-                    <td>Valencia</td>
-                    <td>Real Betis</td>
-                    <td>95 X 72</td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table-content">
-            <caption><b>Round 4</b></caption>
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Home Team</th>
-                    <th>Away Team</th>
-                    <th>Final Result</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>21/09</td>
-                    <td>Estudiantes</td>
-                    <td>Manresa</td>
-                    <td>87 X 79</td>
-                </tr>
-                <tr>
-                    <td>22/09</td>
-                    <td>Barcelona</td>
-                    <td>Valencia</td>
-                    <td>97 X 94</td>
-                </tr>
-                <tr>
-                    <td>23/09</td>
-                    <td>Bilbao</td>
-                    <td>Baskonia</td>
-                    <td>79 X 75</td>
-                </tr>
+
             </tbody>
         </table>
     </div>
