@@ -250,7 +250,7 @@ $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventspastleague.php?id=438
 //UK Elite League
 $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=4381", function (data) { //UK Elite League Next Games
     var next_games = '';
-    var i = 0;~
+    var i = 0;
     console.log(data)
     for (var i = 0; i < data.events.length; i++) {
         next_games += '<tr>';
