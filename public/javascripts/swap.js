@@ -1,11 +1,23 @@
-function football() {
-    document.getElementById('football').innerHTML = '<table id="football" class="table-content"><thead><tr><th>Time</th><th>Home Team</th><th>Away Team</th></tr></thead><tbody><tr><td>20:00</td><td>Sporting</td><td>Porto</td></t><tr><td>20:30</td><td>Real Madrid</td><td>Barcelona</td></tr><tr><td>22:00</td><td>Liverpool</td><td>Manchester City</td></tr></tbody></table >';
+function football(){
+    $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsday.php?d=2019-11-02&s=Soccer&l=Portuguese%20Primeira%20Liga", function (data) { //Liga Nos Live Games
+        var live_games = '';
+        var i = 0;
+        for (var i = 0; i < data.events.length; i++) {
+            live_games += '<tr>';
+            live_games += '<td>' + data.events[i].dateEvent + '</td>';
+            live_games += '<td>' + data.events[i].strHomeTeam + '</td>';
+            live_games += '<td>' + data.events[i].strAwayTeam + '</td>';
+            live_games += '<td>' + data.events[i].intHomeScore + ' v ' + data.events[i].intAwayScore + '</td>';
+        }
+        $('#live_02').append(live_games);
+    });
+
 }
 function basketball() {
-    document.getElementById('football').innerHTML = '<table id="football" class="table-content"><thead><tr><th>Time</th><th>Home Team</th><th>Away Team</th></tr></thead><tbody><tr><td>20:00</td><td>La Lakers</td><td>Clippers</td></t><tr><td>20:30</td><td>Hawks</td><td>Grizzlies</td></tr><tr><td>22:00</td><td>Bucks</td><td>Timberwolves</td></tr></tbody></table >';
+
 }
 function tennis() {
-    document.getElementById('football').innerHTML = '<table id="football" class="table-content"><thead><tr><th>Time</th><th>Player 1</th><th>Player 2</th></tr></thead><tbody><tr><td>20:00</td><td>Nadal</td><td>Federer</td></t><tr><td>20:30</td><td>João Sousa</td><td>Frederico Gil</td></tr><tr><td>22:00</td><td>Gastão Elias</td><td>Medved</td></tr></tbody></table >';
+
 }
 
 function back() {
