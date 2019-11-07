@@ -107,6 +107,48 @@
                 });
             }
             var clubs = [];
+            $.getJSON("https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=English%20Premier%20League", function (data) { //All teams Premier League
+                for (var i = 0; i < data.teams.length; i++) {
+                    clubs.push(data.teams[i].strTeam);
+                }
+            });
+            $.getJSON("https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=Portuguese%20Primeira%20Liga", function (data) { //All teams Premier League
+                for (var i = 0; i < data.teams.length; i++) {
+                    clubs.push(data.teams[i].strTeam);
+                }
+            });
+            $.getJSON("https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=Spanish%20La%20Liga", function (data) { //All teams Premier League
+                for (var i = 0; i < data.teams.length; i++) {
+                    clubs.push(data.teams[i].strTeam);
+                }
+            });
+            $.getJSON("https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=NBA", function (data) { //All teams Premier League
+                for (var i = 0; i < data.teams.length; i++) {
+                    clubs.push(data.teams[i].strTeam);
+                }
+            });
+            $.getJSON("https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=Spanish%20Liga%20ACB", function (data) { //All teams Premier League
+                for (var i = 0; i < data.teams.length; i++) {
+                    clubs.push(data.teams[i].strTeam);
+                }
+            });
+            $.getJSON("https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=Chinese%20CBA", function (data) { //All teams Premier League
+                for (var i = 0; i < data.teams.length; i++) {
+                    clubs.push(data.teams[i].strTeam);
+                }
+            });
+            $.getJSON("https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=NHL", function (data) { //All teams Premier League
+                for (var i = 0; i < data.teams.length; i++) {
+                    clubs.push(data.teams[i].strTeam);
+                }
+            });
+            $.getJSON("https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=UK%20Elite%20Ice%20Hockey%20League", function (data) { //All teams Premier League
+                for (var i = 0; i < data.teams.length; i++) {
+                    clubs.push(data.teams[i].strTeam);
+                }
+            });
+      
+      
             
             autocomplete(document.getElementById("myInput"), clubs);
         </script>

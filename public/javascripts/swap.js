@@ -103,7 +103,6 @@ function football() {
         }
         $('#live_01').append(live_games);
     });
-
     $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsday.php?d=" + today + "&l=Portuguese%20Primeira%20Liga", function (data) { //PremierLeague Live Games
         $("#live_01 tbody tr").remove()
         var live_games = '';
@@ -115,7 +114,6 @@ function football() {
         }
         $('#live_01').append(live_games);
     });
-
     $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsday.php?d=" + today + "&l=Spanish%20La%20Liga", function (data) { //PremierLeague Live Games
         $("#live_01 tbody tr").remove()
         var live_games = '';
@@ -127,7 +125,6 @@ function football() {
         }
         $('#live_01').append(live_games);
     });
-
 }
 
 function tennis() {
