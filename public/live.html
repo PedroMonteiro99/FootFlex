@@ -14,7 +14,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
-<body>
+<body onload="football()">
     <script src="javascripts/swap.js"></script>
     <header>
         <div class="container">
@@ -37,16 +37,14 @@
             <button onclick="basketball()">Basketball</button>
             <button onclick="tennis()">Ice Hockey</button>
         </div>
-        <table id="football" class="table-content">
+        <table class="table-content" id="live_01">
             <thead>
-                <tr>
-                    <th>Time</th>
-                    <th>Home Team</th>
-                    <th>Away Team</th>
-                </tr>
+                <th>Time</th>
+                <th>Home Team</th>
+                <th>Away Team</th>
             </thead>
             <tbody>
-        
+
             </tbody>
         </table>
 
