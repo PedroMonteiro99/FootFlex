@@ -11,7 +11,7 @@ function basketball() {
     var horas = new Date();
     var time = horas.getHours() + ":" + horas.getMinutes() + ":" + horas.getSeconds();
 
-    $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsday.php?d=" + today + "&l=NBA", function (data) { //NBA Live Games
+    $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsday.php?d=" + today + "&l=NBA", function (data) { //PremierLeague Live Games
         var live_games = '';
         for (var i = 0; i < data.events.length; i++) {
             live_games += '<tr>';
@@ -20,17 +20,6 @@ function basketball() {
             live_games += '<td>' + data.events[i].strAwayTeam + '</td>';
         }
         $('#live_01').append(live_games);
-
-        for (var i = 1; i < data.events.length; i++) {
-            var table = document.getElementById("live_01");
-            var sum = data.events[i].strTime;
-            while (table.rows.length > 1) {
-                if (String(time) > sum) {
-                    table.deleteRow(i);
-                }
-            }
-        }
-
     });
 
     $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsday.php?d=" + today + "&l=Chinese%20CBA", function (data) { //Chinese League Live Games     
@@ -42,17 +31,6 @@ function basketball() {
             live_games += '<td>' + data.events[i].strAwayTeam + '</td>';
         }
         $('#live_01').append(live_games);
-
-        for (var i = 1; i < data.events.length; i++) {
-            var table = document.getElementById("live_01");
-            var sum = data.events[i].strTime;
-            while (table.rows.length > 1) {
-                if (String(time) > sum) {
-                    table.deleteRow(i);
-                }
-            }
-        }
-
     });
 
     $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsday.php?d=" + today + "&l=Spanish%20Liga%20ACB", function (data) { //Liga Endesa Live Games    
@@ -64,16 +42,6 @@ function basketball() {
             live_games += '<td>' + data.events[i].strAwayTeam + '</td>';
         }
         $('#live_01').append(live_games);
-
-        for (var i = 1; i < data.events.length; i++) {
-            var table = document.getElementById("live_01");
-            var sum = data.events[i].strTime;
-            while (table.rows.length > 1) {
-                if (String(time) > sum) {
-                    table.deleteRow(i);
-                }
-            }
-        }
     });
 
 }
