@@ -1,4 +1,5 @@
 function basketball() {
+    $("#live_01 tbody tr").remove()
     //DATA
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
@@ -11,7 +12,6 @@ function basketball() {
     var time = horas.getHours() + ":" + horas.getMinutes() + ":" + horas.getSeconds();
 
     $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsday.php?d=" + today + "&l=NBA", function (data) { //NBA Live Games
-        $("#live_01 tbody tr").remove()
         var live_games = '';
         for (var i = 0; i < data.events.length; i++) {
             live_games += '<tr>';
@@ -33,8 +33,7 @@ function basketball() {
 
     });
 
-    $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsday.php?d=" + today + "&l=Chinese%20CBA", function (data) { //Chinese League Live Games
-        $("#live_01 tbody tr").remove()
+    $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsday.php?d=" + today + "&l=Chinese%20CBA", function (data) { //Chinese League Live Games     
         var live_games = '';
         for (var i = 0; i < data.events.length; i++) {
             live_games += '<tr>';
@@ -56,8 +55,7 @@ function basketball() {
 
     });
 
-    $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsday.php?d=" + today + "&l=Spanish%20Liga%20ACB", function (data) { //Liga Endesa Live Games
-        $("#live_01 tbody tr").remove()
+    $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsday.php?d=" + today + "&l=Spanish%20Liga%20ACB", function (data) { //Liga Endesa Live Games    
         var live_games = '';
         for (var i = 0; i < data.events.length; i++) {
             live_games += '<tr>';
@@ -81,6 +79,7 @@ function basketball() {
 }
 
 function football() {
+    $("#live_01 tbody tr").remove()
     //DATA
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
@@ -93,7 +92,6 @@ function football() {
     var time = horas.getHours() + ":" + horas.getMinutes() + ":" + horas.getSeconds();
 
     $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsday.php?d=" + today + "&l=English%20Premier%20League", function (data) { //PremierLeague Live Games
-        $("#live_01 tbody tr").remove()
         var live_games = '';
         for (var i = 0; i < data.events.length; i++) {
             live_games += '<tr>';
@@ -104,7 +102,6 @@ function football() {
         $('#live_01').append(live_games);
     });
     $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsday.php?d=" + today + "&l=Portuguese%20Primeira%20Liga", function (data) { //PremierLeague Live Games
-        $("#live_01 tbody tr").remove()
         var live_games = '';
         for (var i = 0; i < data.events.length; i++) {
             live_games += '<tr>';
@@ -115,7 +112,6 @@ function football() {
         $('#live_01').append(live_games);
     });
     $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsday.php?d=" + today + "&l=Spanish%20La%20Liga", function (data) { //PremierLeague Live Games
-        $("#live_01 tbody tr").remove()
         var live_games = '';
         for (var i = 0; i < data.events.length; i++) {
             live_games += '<tr>';
@@ -128,6 +124,7 @@ function football() {
 }
 
 function tennis() {
+    $("#live_01 tbody tr").remove()
     //DATA
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
@@ -139,7 +136,6 @@ function tennis() {
     var horas = new Date();
     var time = horas.getHours() + ":" + horas.getMinutes() + ":" + horas.getSeconds();
     $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsday.php?d=" + today + "&l=UK%20Elite%20Ice%20Hockey%20League", function (data) { //PremierLeague Live Games
-        $("#live_01 tbody tr").remove()
         var live_games = '';
         for (var i = 0; i < data.events.length; i++) {
             live_games += '<tr>';
@@ -150,8 +146,7 @@ function tennis() {
         $('#live_01').append(live_games);
     });
 
-    $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsday.php?d=" + today + "&l=NHL", function (data) { //PremierLeague Live Games
-        $("#live_01 tbody tr").remove()
+    $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsday.php?d=" + today + "&l=NHL", function (data) { //PremierLeague Live Games      
         var live_games = '';
         for (var i = 0; i < data.events.length; i++) {
             live_games += '<tr>';
