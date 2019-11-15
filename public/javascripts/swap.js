@@ -62,6 +62,8 @@ function football() {
     $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsday.php?d=" + today + "&l=English%20Premier%20League", function (data) { //PremierLeague Live Games
         var live_games = '';
         for (var i = 0; i < data.events.length; i++) {
+            var gameTime = new Date(data.events[i].strTime);
+            //if (horas.)
             live_games += '<tr>';
             live_games += '<td>' + data.events[i].strTime + '</td>';
             live_games += '<td>' + data.events[i].strHomeTeam + '</td>';
