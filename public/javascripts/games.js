@@ -1,33 +1,6 @@
 function back() {
     window.location = "main.html"
 }
-
-//Football
-$.ajax({
-    headers: { 'X-Auth-Token': '1deac30665b9429895ac94e40fa9f3c8' }, //2021-PL,2017-PT,2014-La liga
-    url: 'http://api.football-data.org/v2/players/44',
-    dataType: 'json',
-    type: 'GET',
-}).done(function (response) {
-    // do something with the response, e.g. isolate the id of a linked resource   
-    console.log(response);
-});
-
-
-//Basketball
-$.getJSON("https://www.balldontlie.io/api/v1/teams", function (data) { //NBA
-    console.log(data);
-});
-
-$.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=4408", function (data) { //Liga Endesa - 4408, Chinese Basketball - 4442
-    console.log(data);
-});
-
-//Tennis
-$.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=4464", function (data) { // ATP - 4464, WTA - 4517
-    console.log(data);
-});
-
 // CHINESE BASKETBALL 
 $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=4442", function (data) { //Chinese League Next Games
     var next_games = '';

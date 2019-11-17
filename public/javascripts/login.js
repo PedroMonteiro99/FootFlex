@@ -2,11 +2,14 @@ function entrar() {
     var username = document.getElementById("nome").value
     var password = document.getElementById("palavra").value
     if (username == "Pedro" && password == "Pedro99") {
-        alert("You sucessfully logged in!")
+        alert('You sucessfuly logged in!')
         window.location = "main.html"
     }
     else {
-        alert("Your Username or Password is incorrect!")
+        Swal.fire({
+            title: 'Oops...',
+            text: 'Your Username or Password is incorrect!',
+        })
     }
 }
 
@@ -19,7 +22,10 @@ function registar() {
         window.location = "register.html"
     }
     else {
-        alert("Values are empty please insert your data!")
+        Swal.fire({
+            title: 'Oops...',
+            text: 'Values are empty please insert your data!',
+        })
     }
 }
 
@@ -32,7 +38,11 @@ function sub() {
         window.location = "main.html"
     }
     else {
-        alert("Values are empty please insert your data!")
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Values are empty please insert your data!',
+        })
     }
 }
 
@@ -42,8 +52,7 @@ function getinfo() {
     if (x == "Sports") {
         var select = document.getElementById("change");
         var i;
-        for(i = select.options.length - 1 ; i >= 0 ; i--)
-        {
+        for (i = select.options.length - 1; i >= 0; i--) {
             select.remove(i);
         }
         var option = document.createElement("option");
@@ -59,8 +68,7 @@ function getinfo() {
     else if (x == "League") {
         var select = document.getElementById("change");
         var i;
-        for(i = select.options.length - 1 ; i >= 0 ; i--)
-        {
+        for (i = select.options.length - 1; i >= 0; i--) {
             select.remove(i);
         }
         var option = document.createElement("option");
@@ -88,11 +96,10 @@ function getinfo() {
         option.text = "Basket - Liga Endesa";
         y.add(option);
     }
-    else if(x == "All in One"){
+    else if (x == "All in One") {
         var select = document.getElementById("change");
         var i;
-        for(i = select.options.length - 1 ; i >= 0 ; i--)
-        {
+        for (i = select.options.length - 1; i >= 0; i--) {
             select.remove(i);
         }
     }

@@ -10,6 +10,7 @@
     <title>FootFlex | Login</title>
     <link rel="stylesheet" href="stylesheets/style.css">
     <link rel="icon" href="images/football.png">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 </head>
 
 <body class="login">
@@ -17,7 +18,7 @@
     <div class="form-box">
         <div class="button-box">
             <div id="btn"></div>
-            <button type="button" class="toggle-btn" onclick="login()">Log In</button>
+            <button type="button" class="toggle-btn" onclick="login()">Login</button>
             <button type="button" class="toggle-btn" onclick="register()">Register</button>
         </div>
         <div class="football-icon">
@@ -29,7 +30,7 @@
             <input type="text" class="input-field" placeholder="Username" id="nome" required>
             <input type="password" class="input-field" placeholder="Password" id="palavra" required>
             <input type="checkbox" class="check-box"><span>Remember Password</span>
-            <button type="button" class="submit-btn" onclick="entrar()">Log in</button>
+            <button type="button" class="submit-btn" onclick="entrar()">Login</button>
         </form>
         <form id="register" class="input-group">
             <input type="text" class="input-field" placeholder="Username" id="name" required>
