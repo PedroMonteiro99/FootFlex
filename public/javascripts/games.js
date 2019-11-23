@@ -1,6 +1,7 @@
 function back() {
     window.location = "main.html"
 }
+
 // CHINESE BASKETBALL 
 $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=4442", function (data) { //Chinese League Next Games
     var next_games = '';
@@ -124,7 +125,6 @@ $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventspastleague.php?id=432
     }
     $('#premier_02').append(last_games);
 });
-
 
 //Liga Endesa
 $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=4408", function (data) { //Liga Endesa Next Games
