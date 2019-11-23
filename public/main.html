@@ -11,9 +11,11 @@
     <link rel="stylesheet" href="stylesheets/main.css">
     <link rel="icon" href="images/football.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
+    <script src="javascripts/latest.js"></script>
     <header>
         <div class="container">
             <div id="branding">
@@ -30,31 +32,19 @@
     </header>
     <div class="main">
         <h2>Latest Results</h2>
-        <table id="table">
-            <tr>
-                <th>Home Team</th>
-                <th>Away Team</th>
-                <th>Final Result</th>
-            </tr>
-            <tr>
-                <td>Juventus</td>
-                <td>Atlético de Madrid</td>
-                <td>2 v 2</td>
-            </tr>
-            <tr>
-                <td>Tottenham</td>
-                <td>Bayern</td>
-                <td>2 v 7</td>
-            </tr>
-            <tr>
-                <td>Sporting</td>
-                <td>Aves</td>
-                <td>2 v 2</td>
-            </tr>
+        <table class="table-content" id="main_01">
+            <thead>
+                <tr>
+                    <th>League</th>
+                    <th>Home Team</th>
+                    <th>Away Team</th>
+                    <th>Final Result</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
         </table>
-    </div>
-    <div class="sponsors">
-        
     </div>
     <div class="sidenav">
         <a href="live.html">LIVE 🔴</a>
@@ -79,9 +69,9 @@
         </button>
         <div class="dropdown-container">
             <a href="nhl.html">NHL</a>
-            <a href="elite.html">UK Elite League</a>  
-        </div >
-        <a href="clubs.html">My Clubs ⭐</a>  
+            <a href="elite.html">UK Elite League</a>
+        </div>
+        <a href="clubs.html">My Clubs ⭐</a>
     </div>
     <script>
         var dropdown = document.getElementsByClassName("dropdown-btn");

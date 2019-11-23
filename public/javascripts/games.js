@@ -251,4 +251,3 @@ $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventspastleague.php?id=438
     }
     $('#elite_02').append(last_games);
 });
-
