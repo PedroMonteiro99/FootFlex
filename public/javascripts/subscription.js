@@ -22,7 +22,7 @@ function entrar(){
             Password:document.getElementById("palavra").value,
         },
         success: function(result,status){
-            alert('You sucessfuly logged in! '+status)
+            alert('You sucessfuly logged in!')
             window.location = "main.html"
         },
         error: function(jqXHR,textStatus,errorThrown ){

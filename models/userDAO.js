@@ -24,11 +24,9 @@ module.exports.login = function (obj, callback, next) {
             console.log(obj);
             conn.release();
             if (!(rows.length === 0)) {
-                console.log(rows.length)
                 callback({ code: 200, status: "ok" }, rows);
             }
             else {
-                console.log('Erro')
                 callback({ code: 401, status: "User or password incorrects" }, null);
             }
         })
@@ -41,7 +39,7 @@ module.exports.register = function (obj, callback, next) {
             conn.release();
             next(err);
         }
-        else conn.query('INSERT INTO Cliente(Username, Email,Password,Pacote_idPacote) VALUES (?,?,?,?)', [obj.name, obj.email, obj.password, obj.idpacote], function (err, rows) {
+        else conn.query('INSERT INTO Cliente(Username, Email,Password,Pacote_idPacote) VALUES (?,?,?,?)', [obj.Username, obj.Email, obj.Password, obj.idpacote], function (err, rows) {
             conn.release();
             callback(rows);
         })
