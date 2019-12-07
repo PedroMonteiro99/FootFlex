@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="css/qgis2web.css">
   <link rel="stylesheet" href="css/fontawesome-all.min.css">
   <link rel="icon" href="../images/football.png">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <style>
     #map {
       width: 1619px;
@@ -34,6 +36,8 @@
   <script src="js/rbush.min.js"></script>
   <script src="js/labelgun.min.js"></script>
   <script src="js/labels.js"></script>
+  <script src="js/leaflet-routing-machine.js"></script>
+  <script src="js/Control.Geocoder.js"></script>
   <script>
     var highlightLayer;
     function highlightFeature(e) {
@@ -51,7 +55,7 @@
       }
       highlightLayer.openPopup();
     }
-    var map =L.map('map').setView([51.505, -0.09], 13);
+    var map = L.map('map').setView([39.4696777,-9.2004369], 7.42);
 
     var hash = new L.Hash(map);
 
@@ -61,7 +65,7 @@
 
     var bounds_group = new L.featureGroup([]);
 
-    function setBounds() {}
+    function setBounds() { }
 
     var layer_GoogleMaps_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}', {
       opacity: 1.0,
@@ -80,12 +84,38 @@
     layer_GoogleSatelliteHybrid_1;
 
     map.addLayer(layer_GoogleSatelliteHybrid_1);
-    
+
     setBounds();
-    
-    L.marker([51.5, -0.09]).addTo(map)
+
+    /*L.marker([51.5, -0.09]).addTo(map)
       .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
-      .openPopup();
+      .openPopup();*/
+
+    function getUrlVars() {
+      var vars = {};
+      var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+        vars[key] = value;
+      });
+      return vars;
+    }
+    var x = getUrlVars()['mark']
+
+    $.getJSON("https://nominatim.openstreetmap.org/search/" + x + "?format=json", function (data) { //Get latLng from main stadium
+      var lat = data[0].lat
+      var long = data[0].lon
+      console.log(lat + ',' + long)
+      var control = L.Routing.control({
+        waypoints: [
+          L.latLng(lat, long),
+          L.latLng(57.6792, 11.949)
+        ],
+        routeWhileDragging: true,
+        geocoder: L.Control.Geocoder.nominatim()
+      }).addTo(map);
+    });
+
+
+
 
   </script>
 </body>

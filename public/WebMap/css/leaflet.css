@@ -37,7 +37,6 @@
 .leaflet-safari .leaflet-tile-container {
 	width: 1600px;
 	height: 1600px;
-	-webkit-transform-origin: 0 0;
 	}
 .leaflet-marker-icon,
 .leaflet-marker-shadow {
@@ -137,6 +136,13 @@
 .leaflet-right {
 	right: 0;
 	}
+
+.leaflet-routing-alternatives-container {
+	display: none;
+}
+.leaflet-routing-geocoder {
+	display: none;
+}
 .leaflet-bottom {
 	bottom: 0;
 	}

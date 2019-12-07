@@ -1,11 +1,78 @@
-window.onload = function getUrlVars() { //Code to get the params that were send via URL
-    var vars = {};
-    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-        vars[key] = value;
-    });
-    console.log(vars)
-    return vars;
-  
+window.onload = function authenticate() {
+    var utilizador = localStorage.getItem("username")
+    $.ajax({
+        url: '/api/users/authentication', //Igual ao que está no app.js
+        method: 'get',
+        success: function (result, status) {
+            users = result;
+            console.log(users)
+            for (i in users) {
+                if (users[i].username == utilizador) {
+                    if (users[i].Nome == 'Sports') { //Block pelo Pacote Sports
+                        if (users[i].Desporto == 'Football') {
+                            $("#basketball").hide();
+                            $("#ice").hide();
+                        }
+                        else if (users[i].Desporto == 'Basketball') {
+                            $("#football").hide();
+                            $("#ice").hide();
+                        }
+                        else if (users[i].Desporto == 'Ice Hockey') {
+                            $("#football").hide();
+                            $("#basketball").hide();
+                        }
+                    }
+                    if (users[i].Nome == 'League') { // Block pelo Pacote League
+                        if (users[i].Desporto == 'Football') {
+                            $("#basketball").hide();
+                            $("#ice").hide();
+                            if (users[i].Liga == 'Liga Nos') {
+                                $("#premier").hide();
+                                $("#laliga").hide();
+                            }
+                            else if (users[i].Liga == 'Premier League') {
+                                $("#nos").hide();
+                                $("#laliga").hide();
+                            }
+                            else if (users[i].Liga == 'La Liga') {
+                                $("#nos").hide();
+                                $("#premier").hide();
+                            }
+                        }
+                        else if (users[i].Desporto == 'Basketball') {
+                            $("#football").hide();
+                            $("#ice").hide();
+                            if (users[i].Liga == 'NBA') {
+                                $("#endesa").hide();
+                                $("#chinese").hide();
+                            }
+                            else if (users[i].Liga == 'Liga Endesa') {
+                                $("#nba").hide();
+                                $("#chinese").hide();
+                            }
+                            else if (users[i].Liga == 'Chinese League') {
+                                $("#nba").hide();
+                                $("#endesa").hide();
+                            }
+                        }
+                        else if (users[i].Desporto == 'Ice Hockey') {
+                            $("#football").hide();
+                            $("#basketball").hide();
+                            if (users[i].Liga == 'NHL') {
+                                $("#elite").hide();
+                            }
+                            else if (users[i].Liga == 'UK Elite League') {
+                                $("#nhl").hide();
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        error: function () {
+            console.log('Error');
+        }
+    })
 }
 
 
@@ -17,9 +84,9 @@ var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
 var yyyy = today.getFullYear();
 today = yyyy + '-' + mm + '-' + (dd - 1);
 
-$.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsday.php?d=" + today + "&l=NBA", function (data) { //NBA Latest Games
+$.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventspastleague.php?id=4387", function (data) { //NBA Latest Games
     var latest_games = '';
-    for (var i = 0; i < data.events.length; i++) {
+    for (var i = 0; i < 3; i++) {
         latest_games += '<tr>';
         latest_games += '<td>NBA</td>';
         latest_games += '<td>' + data.events[i].strHomeTeam + '</td>';
@@ -29,9 +96,9 @@ $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsday.php?d=" + today +
     $('#main_01').append(latest_games);
 });
 
-$.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsday.php?d=" + today + "&l=Chinese%20CBA", function (data) { //Chinese League Latest Games
+$.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventspastleague.php?id=4442", function (data) { //Chinese League Latest Games
     var latest_games = '';
-    for (var i = 0; i < data.events.length; i++) {
+    for (var i = 0; i < 3; i++) {
         latest_games += '<tr>';
         latest_games += '<td>Chinese Basketball</td>';
         latest_games += '<td>' + data.events[i].strHomeTeam + '</td>';
@@ -41,9 +108,9 @@ $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsday.php?d=" + today +
     $('#main_01').append(latest_games);
 });
 
-$.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsday.php?d=" + today + "&l=Spanish%20Liga%20ACB", function (data) { //Liga Endesa Latest Games
+$.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventspastleague.php?id=4408", function (data) { //Liga Endesa Latest Games
     var latest_games = '';
-    for (var i = 0; i < data.events.length; i++) {
+    for (var i = 0; i < 3; i++) {
         latest_games += '<tr>';
         latest_games += '<td>Liga Endesa</td>';
         latest_games += '<td>' + data.events[i].strHomeTeam + '</td>';
@@ -53,9 +120,9 @@ $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsday.php?d=" + today +
     $('#main_01').append(latest_games);
 });
 
-$.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsday.php?d=" + today + "&l=English%20Premier%20League", function (data) { //EPL Latest Games
+$.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventspastleague.php?id=4328", function (data) { //EPL Latest Games
     var latest_games = '';
-    for (var i = 0; i < data.events.length; i++) {
+    for (var i = 0; i < 3; i++) {
         latest_games += '<tr>';
         latest_games += '<td>Premier League</td>';
         latest_games += '<td>' + data.events[i].strHomeTeam + '</td>';
@@ -65,9 +132,9 @@ $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsday.php?d=" + today +
     $('#main_01').append(latest_games);
 });
 
-$.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsday.php?d=" + today + "&l=Portuguese%20Primeira%20Liga", function (data) { //Liga NOS Latest Games
+$.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventspastleague.php?id=4344", function (data) { //Liga NOS Latest Games
     var latest_games = '';
-    for (var i = 0; i < data.events.length; i++) {
+    for (var i = 0; i < 3; i++) {
         latest_games += '<tr>';
         latest_games += '<td>Liga NOS</td>';
         latest_games += '<td>' + data.events[i].strHomeTeam + '</td>';
@@ -77,9 +144,9 @@ $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsday.php?d=" + today +
     $('#main_01').append(latest_games);
 });
 
-$.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsday.php?d=" + today + "&l=Spanish%20La%20Liga", function (data) { //La Liga Latest Games
+$.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventspastleague.php?id=4335", function (data) { //La Liga Latest Games
     var latest_games = '';
-    for (var i = 0; i < data.events.length; i++) {
+    for (var i = 0; i < 3; i++) {
         latest_games += '<tr>';
         latest_games += '<td>La Liga</td>';
         latest_games += '<td>' + data.events[i].strHomeTeam + '</td>';
@@ -89,9 +156,9 @@ $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsday.php?d=" + today +
     $('#main_01').append(latest_games);
 });
 
-$.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsday.php?d=" + today + "&l=UK%20Elite%20Ice%20Hockey%20League", function (data) { //UK Ice Hockey Latest Games
+$.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventspastleague.php?id=4381", function (data) { //UK Ice Hockey Latest Games
     var latest_games = '';
-    for (var i = 0; i < data.events.length; i++) {
+    for (var i = 0; i < 3; i++) {
         latest_games += '<tr>';
         latest_games += '<td>UK Ice Hockey</td>';
         latest_games += '<td>' + data.events[i].strHomeTeam + '</td>';
@@ -101,9 +168,9 @@ $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsday.php?d=" + today +
     $('#main_01').append(latest_games);
 });
 
-$.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsday.php?d=" + today + "&l=NHL", function (data) { //NHL Latest Games
+$.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventspastleague.php?id=4380", function (data) { //NHL Latest Games
     var latest_games = '';
-    for (var i = 0; i < data.events.length; i++) {
+    for (var i = 0; i < 3; i++) {
         latest_games += '<tr>';
         latest_games += '<td>NHL</td>';
         latest_games += '<td>' + data.events[i].strHomeTeam + '</td>';

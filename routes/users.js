@@ -19,4 +19,10 @@ router.post('/login', function(req, res, next) {
   }); 
 });
 
+router.get('/authentication', function(req, res, next) {
+  usersDAO.authentication(function(result){
+    res.send(result);
+  }); 
+});
+
 module.exports = router;

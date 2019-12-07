@@ -23,7 +23,8 @@ function entrar(){
         },
         success: function(result,status){
             alert('You sucessfuly logged in!')
-            window.location = "main.html?Username="+document.getElementById("nome").value;
+            localStorage.setItem("username",document.getElementById("nome").value) ;
+            window.location = "main.html";
         },
         error: function(jqXHR,textStatus,errorThrown ){
             Swal.fire({

@@ -59,7 +59,7 @@ function getinfo() {
         option.text = "Football";
         y.add(option);
         var option = document.createElement("option");
-        option.text = "Tennis";
+        option.text = "Ice Hockey";
         y.add(option);
         var option = document.createElement("option");
         option.text = "Basket";
@@ -81,16 +81,16 @@ function getinfo() {
         option.text = "Football - La Liga";
         y.add(option);
         var option = document.createElement("option");
-        option.text = "Tennis - WTA Circuit";
+        option.text = "Ice Hockey - NHL";
         y.add(option);
         var option = document.createElement("option");
-        option.text = "Tennis - ATP Circuit";
+        option.text = "Ice Hockey - UK Elite League ";
         y.add(option);
         var option = document.createElement("option");
         option.text = "Basket - NBA";
         y.add(option);
         var option = document.createElement("option");
-        option.text = "Basket - LPB";
+        option.text = "Basket - Chinese League";
         y.add(option);
         var option = document.createElement("option");
         option.text = "Basket - Liga Endesa";
