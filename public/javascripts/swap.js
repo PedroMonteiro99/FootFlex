@@ -2,6 +2,18 @@ var desporto = '';
 var liga = '';
 var pacote = '';
 var team_array = [];
+const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    onOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+})
+
 
 window.onload = function authenticate() {
     var utilizador = localStorage.getItem("username")
@@ -358,22 +370,9 @@ function favorito() {
                 if (data.teams[i].strLeague == 'UK Elite Ice Hockey League') {
                     ligue = 'UK Elite League'
                 }
-
                 if (pacote == 'Sports') { //Block pelo Pacote Sports
                     if (desporto == sport) {
                         if (team_array.length == 0 || !(team_array[i].Equipa == nome)) {
-                            const Toast = Swal.mixin({
-                                toast: true,
-                                position: 'top-end',
-                                showConfirmButton: false,
-                                timer: 3000,
-                                timerProgressBar: true,
-                                onOpen: (toast) => {
-                                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                                }
-                            })
-
                             Toast.fire({
                                 icon: 'success',
                                 title: 'You added this team successfully!'
@@ -387,18 +386,6 @@ function favorito() {
                         }
                     }
                     else {
-                        const Toast = Swal.mixin({
-                            toast: true,
-                            position: 'top-end',
-                            showConfirmButton: false,
-                            timer: 3000,
-                            timerProgressBar: true,
-                            onOpen: (toast) => {
-                                toast.addEventListener('mouseenter', Swal.stopTimer)
-                                toast.addEventListener('mouseleave', Swal.resumeTimer)
-                            }
-                        })
-
                         Toast.fire({
                             icon: 'error',
                             title: "The plan that you have does not have this team included!"
@@ -409,18 +396,6 @@ function favorito() {
                     if (desporto == sport) {
                         if (liga == ligue) {
                             if (team_array.length == 0 || !(team_array[i].Equipa == nome)) {
-                                const Toast = Swal.mixin({
-                                    toast: true,
-                                    position: 'top-end',
-                                    showConfirmButton: false,
-                                    timer: 3000,
-                                    timerProgressBar: true,
-                                    onOpen: (toast) => {
-                                        toast.addEventListener('mouseenter', Swal.stopTimer)
-                                        toast.addEventListener('mouseleave', Swal.resumeTimer)
-                                    }
-                                })
-
                                 Toast.fire({
                                     icon: 'success',
                                     title: 'You added this team successfully!'
@@ -434,18 +409,6 @@ function favorito() {
                             }
                         }
                         else {
-                            const Toast = Swal.mixin({
-                                toast: true,
-                                position: 'top-end',
-                                showConfirmButton: false,
-                                timer: 3000,
-                                timerProgressBar: true,
-                                onOpen: (toast) => {
-                                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                                }
-                            })
-
                             Toast.fire({
                                 icon: 'error',
                                 title: "The plan that you have does not have this team included!"
@@ -453,38 +416,15 @@ function favorito() {
                         }
                     }
                     else {
-                        const Toast = Swal.mixin({
-                            toast: true,
-                            position: 'top-end',
-                            showConfirmButton: false,
-                            timer: 3000,
-                            timerProgressBar: true,
-                            onOpen: (toast) => {
-                                toast.addEventListener('mouseenter', Swal.stopTimer)
-                                toast.addEventListener('mouseleave', Swal.resumeTimer)
-                            }
-                        })
-
                         Toast.fire({
                             icon: 'error',
                             title: "The plan that you have does not have this team included!"
                         })
                     }
+                    
                 }
                 if (pacote == 'All in One') {
                     if (team_array.length == 0 || !(team_array[i].Equipa == nome)) {
-                        const Toast = Swal.mixin({
-                            toast: true,
-                            position: 'top-end',
-                            showConfirmButton: false,
-                            timer: 3000,
-                            timerProgressBar: true,
-                            onOpen: (toast) => {
-                                toast.addEventListener('mouseenter', Swal.stopTimer)
-                                toast.addEventListener('mouseleave', Swal.resumeTimer)
-                            }
-                        })
-
                         Toast.fire({
                             icon: 'success',
                             title: 'You added this team successfully!'
