@@ -372,17 +372,28 @@ function favorito() {
                 }
                 if (pacote == 'Sports') { //Block pelo Pacote Sports
                     if (desporto == sport) {
-                        if (team_array.length == 0 || !(team_array[i].Equipa == nome)) {
+                        if (team_array.length == 0) {
                             Toast.fire({
                                 icon: 'success',
                                 title: 'You added this team successfully!'
                             })
-                            team_array.push({ Equipa: nome })
+                            team_array.push(nome)
                             var idEquipa = data.teams[i].idTeam;
                             addGames(idEquipa)
                         }
                         else {
-                            alert('Já adicionou esta equipa')
+                            if (team_array.includes(nome)) {
+                                alert('Equipa Já Adicionada')
+                            }
+                            else {
+                                Toast.fire({
+                                    icon: 'success',
+                                    title: 'You added this team successfully!'
+                                })
+                                team_array.push(nome)
+                                var idEquipa = data.teams[i].idTeam;
+                                addGames(idEquipa)
+                            }
                         }
                     }
                     else {
@@ -395,17 +406,28 @@ function favorito() {
                 if (pacote == 'League') { // Block pelo Pacote League
                     if (desporto == sport) {
                         if (liga == ligue) {
-                            if (team_array.length == 0 || !(team_array[i].Equipa == nome)) {
+                            if (team_array.length == 0) {
                                 Toast.fire({
                                     icon: 'success',
                                     title: 'You added this team successfully!'
                                 })
-                                team_array.push({ Equipa: nome })
+                                team_array.push(nome)
                                 var idEquipa = data.teams[i].idTeam;
                                 addGames(idEquipa)
                             }
                             else {
-                                alert('Já adicionou esta equipa')
+                                if (team_array.includes(nome)) {
+                                    alert('Equipa Já Adicionada')
+                                }
+                                else {
+                                    Toast.fire({
+                                        icon: 'success',
+                                        title: 'You added this team successfully!'
+                                    })
+                                    team_array.push(nome)
+                                    var idEquipa = data.teams[i].idTeam;
+                                    addGames(idEquipa)
+                                }
                             }
                         }
                         else {
@@ -421,20 +443,31 @@ function favorito() {
                             title: "The plan that you have does not have this team included!"
                         })
                     }
-                    
+
                 }
                 if (pacote == 'All in One') {
-                    if (team_array.length == 0 || !(team_array[i].Equipa == nome)) {
+                    if (team_array.length == 0) {
                         Toast.fire({
                             icon: 'success',
                             title: 'You added this team successfully!'
                         })
-                        team_array.push({ Equipa: nome })
+                        team_array.push(nome)
                         var idEquipa = data.teams[i].idTeam;
                         addGames(idEquipa)
                     }
                     else {
-                        alert('Já adicionou esta equipa')
+                        if (team_array.includes(nome)) {
+                            alert('Equipa Já Adicionada')
+                        }
+                        else {
+                            Toast.fire({
+                                icon: 'success',
+                                title: 'You added this team successfully!'
+                            })
+                            team_array.push(nome)
+                            var idEquipa = data.teams[i].idTeam;
+                            addGames(idEquipa)
+                        }
                     }
                 }
 
@@ -447,7 +480,7 @@ function addGames(id) {
     $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsnext.php?id=" + id, function (data) {
         var next_games = '';
         var i = 0;
-        for (var i = 0; i < data.events.length; i++) {
+        for (var i = 0; i < 2; i++) {
             next_games += '<tr>';
             next_games += '<td>' + data.events[i].dateEvent + '</td>';
             next_games += '<td>' + data.events[i].strHomeTeam + '</td>';
