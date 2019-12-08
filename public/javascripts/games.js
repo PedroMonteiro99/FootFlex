@@ -179,12 +179,18 @@ $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=434
     $(".button-list_03").click(function () {
         var id = this.id;
         $.getJSON("https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=Portuguese%20Primeira%20Liga", function (equipa) {
+            var info = '';
+            var i = 0;
             for (var i = 0; i < equipa.teams.length; i++) {
-                if (equipa.teams[i].strTeam == id) {
-                   window.open('WebMap/index.html?mark='+equipa.teams[i].strTeam, '_blank', 'height=100', 'width=400');
+                if(id == 'Sporting Lisbon'){
+                    id = 'Sporting CP';
+                }
+                else if (equipa.teams[i].strTeam == id) {
+                    info = equipa.teams[i].strStadium
                 }
             }
-        });        
+            window.open('WebMap/index.html?mark=' + info, '_blank', 'height=100', 'width=400')
+        });
     });
 });
 

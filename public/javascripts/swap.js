@@ -1,3 +1,8 @@
+var desporto = '';
+var liga = '';
+var pacote = '';
+var team_array = [];
+
 window.onload = function authenticate() {
     var utilizador = localStorage.getItem("username")
     console.log(utilizador)
@@ -9,6 +14,9 @@ window.onload = function authenticate() {
             console.log(users)
             for (i in users) {
                 if (users[i].username == utilizador) {
+                    desporto = users[i].Desporto;
+                    liga = users[i].Liga;
+                    pacote = users[i].Nome;
                     if (users[i].Nome == 'Sports') { //Block pelo Pacote Sports
                         if (users[i].Desporto == 'Football') {
                             $("#basketball").hide();
@@ -181,7 +189,6 @@ function football() {
 
     $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=4328", function (data) { //PremierLeague Live Games
         var live_games = '';
-        console.log(data)
         if (data.events == null) {
             Swal.fire({
                 icon: 'error',
@@ -322,13 +329,192 @@ function back() {
 }
 
 function favorito() {
+    var sport = '';
+    var ligue = '';
     var nome = document.getElementById("myInput").value
-    $.getJSON("https://www.thesportsdb.com/api/v1/json/1/searchteams.php?t="+nome, function (data) {
+    $.getJSON("https://www.thesportsdb.com/api/v1/json/1/searchteams.php?t=" + nome, function (data) {
         for (var i = 0; i < data.teams.length; i++) {
-            if (data.teams[i].strTeam == nome){
-                var idEquipa = data.teams[i].idTeam;
+            if (data.teams[i].strTeam == nome) {
+                sport = data.teams[i].strSport;
+                ligue = data.teams[i].strLeague;
+                if (data.teams[i].strSport == 'Soccer') {
+                    sport = 'Football'
+                }
+                if (data.teams[i].strLeague == 'Portuguese Primeira Liga') {
+                    ligue = 'Liga Nos'
+                }
+                if (data.teams[i].strLeague == 'Spanish La Liga') {
+                    ligue = 'La Liga'
+                }
+                if (data.teams[i].strLeague == 'English Premier League') {
+                    ligue = 'Premier League'
+                }
+                if (data.teams[i].strLeague == 'Spanish Liga ACB') {
+                    ligue = 'Liga Endesa'
+                }
+                if (data.teams[i].strLeague == 'Chinese CBA') {
+                    ligue = 'Chinese League'
+                }
+                if (data.teams[i].strLeague == 'UK Elite Ice Hockey League') {
+                    ligue = 'UK Elite League'
+                }
+
+                if (pacote == 'Sports') { //Block pelo Pacote Sports
+                    if (desporto == sport) {
+                        if (team_array.length == 0 || !(team_array[i].Equipa == nome)) {
+                            const Toast = Swal.mixin({
+                                toast: true,
+                                position: 'top-end',
+                                showConfirmButton: false,
+                                timer: 3000,
+                                timerProgressBar: true,
+                                onOpen: (toast) => {
+                                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                                }
+                            })
+
+                            Toast.fire({
+                                icon: 'success',
+                                title: 'You added this team successfully!'
+                            })
+                            team_array.push({ Equipa: nome })
+                            var idEquipa = data.teams[i].idTeam;
+                            addGames(idEquipa)
+                        }
+                        else {
+                            alert('Já adicionou esta equipa')
+                        }
+                    }
+                    else {
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true,
+                            onOpen: (toast) => {
+                                toast.addEventListener('mouseenter', Swal.stopTimer)
+                                toast.addEventListener('mouseleave', Swal.resumeTimer)
+                            }
+                        })
+
+                        Toast.fire({
+                            icon: 'error',
+                            title: "The plan that you have does not have this team included!"
+                        })
+                    }
+                }
+                if (pacote == 'League') { // Block pelo Pacote League
+                    if (desporto == sport) {
+                        if (liga == ligue) {
+                            if (team_array.length == 0 || !(team_array[i].Equipa == nome)) {
+                                const Toast = Swal.mixin({
+                                    toast: true,
+                                    position: 'top-end',
+                                    showConfirmButton: false,
+                                    timer: 3000,
+                                    timerProgressBar: true,
+                                    onOpen: (toast) => {
+                                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                                    }
+                                })
+
+                                Toast.fire({
+                                    icon: 'success',
+                                    title: 'You added this team successfully!'
+                                })
+                                team_array.push({ Equipa: nome })
+                                var idEquipa = data.teams[i].idTeam;
+                                addGames(idEquipa)
+                            }
+                            else {
+                                alert('Já adicionou esta equipa')
+                            }
+                        }
+                        else {
+                            const Toast = Swal.mixin({
+                                toast: true,
+                                position: 'top-end',
+                                showConfirmButton: false,
+                                timer: 3000,
+                                timerProgressBar: true,
+                                onOpen: (toast) => {
+                                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                                }
+                            })
+
+                            Toast.fire({
+                                icon: 'error',
+                                title: "The plan that you have does not have this team included!"
+                            })
+                        }
+                    }
+                    else {
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true,
+                            onOpen: (toast) => {
+                                toast.addEventListener('mouseenter', Swal.stopTimer)
+                                toast.addEventListener('mouseleave', Swal.resumeTimer)
+                            }
+                        })
+
+                        Toast.fire({
+                            icon: 'error',
+                            title: "The plan that you have does not have this team included!"
+                        })
+                    }
+                }
+                if (pacote == 'All in One') {
+                    if (team_array.length == 0 || !(team_array[i].Equipa == nome)) {
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true,
+                            onOpen: (toast) => {
+                                toast.addEventListener('mouseenter', Swal.stopTimer)
+                                toast.addEventListener('mouseleave', Swal.resumeTimer)
+                            }
+                        })
+
+                        Toast.fire({
+                            icon: 'success',
+                            title: 'You added this team successfully!'
+                        })
+                        team_array.push({ Equipa: nome })
+                        var idEquipa = data.teams[i].idTeam;
+                        addGames(idEquipa)
+                    }
+                    else {
+                        alert('Já adicionou esta equipa')
+                    }
+                }
 
             }
-        }       
+        }
     });
+}
+
+function addGames(id) {
+    $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsnext.php?id=" + id, function (data) {
+        var next_games = '';
+        var i = 0;
+        for (var i = 0; i < data.events.length; i++) {
+            next_games += '<tr>';
+            next_games += '<td>' + data.events[i].dateEvent + '</td>';
+            next_games += '<td>' + data.events[i].strHomeTeam + '</td>';
+            next_games += '<td>' + data.events[i].strAwayTeam + '</td>';
+        }
+        $('#clubs_01').append(next_games);
+
+    });
+
 }
