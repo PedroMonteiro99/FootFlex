@@ -59,3 +59,16 @@ module.exports.authentication = function (callback, next) {
         })
     })
 }
+
+module.exports.getUserDetails = function (callback, next) {
+    mysql.getConnection(function (err, conn) {
+        if (err) {
+            conn.release();
+            next(err);
+        }
+        else conn.query("SELECT Username, Email,Nome from Cliente, Pacote where Pacote_idPacote = idPacote", function (err, rows) {
+            conn.release();
+            callback(rows);
+        })
+    })
+}

@@ -2,18 +2,6 @@ var desporto = '';
 var liga = '';
 var pacote = '';
 var team_array = [];
-const Toast = Swal.mixin({
-    toast: true,
-    position: 'top-end',
-    showConfirmButton: false,
-    timer: 3000,
-    timerProgressBar: true,
-    onOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-    }
-})
-
 
 window.onload = function authenticate() {
     var utilizador = localStorage.getItem("username")
@@ -341,6 +329,17 @@ function back() {
 }
 
 function favorito() {
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        onOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
     var sport = '';
     var ligue = '';
     var nome = document.getElementById("myInput").value
@@ -383,7 +382,10 @@ function favorito() {
                         }
                         else {
                             if (team_array.includes(nome)) {
-                                alert('Equipa Já Adicionada')
+                                Toast.fire({
+                                    icon: 'warning',
+                                    title: 'This team has already been added!'
+                                })
                             }
                             else {
                                 Toast.fire({
@@ -417,7 +419,10 @@ function favorito() {
                             }
                             else {
                                 if (team_array.includes(nome)) {
-                                    alert('Equipa Já Adicionada')
+                                    Toast.fire({
+                                        icon: 'warning',
+                                        title: 'This team has already been added!'
+                                    })
                                 }
                                 else {
                                     Toast.fire({
@@ -457,7 +462,10 @@ function favorito() {
                     }
                     else {
                         if (team_array.includes(nome)) {
-                            alert('Equipa Já Adicionada')
+                            Toast.fire({
+                                icon: 'warning',
+                                title: 'This team has already been added!'
+                            })
                         }
                         else {
                             Toast.fire({

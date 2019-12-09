@@ -24,6 +24,7 @@ app.use('/', indexRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/users/authentication', usersRouter);
 app.use('/api/users/login', usersRouter);
+app.use('/api/users/details', usersRouter);
 app.use('/api/livegames/', liveRouter);
 
 // catch 404 and forward to error handler

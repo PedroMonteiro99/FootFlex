@@ -9,12 +9,13 @@
     <meta name="author" content="Pedro Monteiro, Miguel Ramos, José Borges">
     <title>FootFlex | User Page</title>
     <link rel="stylesheet" href="stylesheets/user.css">
+    <script src='javascripts/details.js'></script>
     <link rel="icon" href="images/football.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
-    <script src="javascripts/swap.js"></script>
     <header>
         <div class="container">
             <div id="branding">
@@ -27,21 +28,21 @@
         <div class="grupo">
             <label for="username">Username: </label>
             <br>
-            <input type="text" id="username" value="Pedro" required="">
+            <input type="text" id="username" required>
         </div>
         <div class="grupo">
             <label for="email">Email: </label>
             <br>
-            <input type="email" id="email" value="50037086@iade.pt" required="">
+            <input type="email" id="email" required>
         </div>
         <div class="grupo">
             <label for="newpass">New Password: </label>
             <br>
-            <input type="password" id="newpass" value="" required="">
+            <input type="password" id="newpass" required>
         </div>
         <hr>
         <div class="grupo">
-            <input type="password" class="pass" placeholder="Enter Current Password" required="">
+            <input type="password" class="pass" id="oldpass" placeholder="Enter Current Password" required>
             <button type="button" class="btn">Update Account</button>
         </div>
     </div>
@@ -49,10 +50,10 @@
         <h4 class="heading">User Settings</h4>
         <div class="card">
             <img src="images/user.png" class="profile-image" height="128" width="128">
-            <h1>Pedro</h1>
+            <h1 id='navUsername' ></h1>
             <p class="pacote">Chosen Plan:</p>
-            <p class="tipo">All in One</p>
-            <a href="#" class="btn-user">Delete Plan</a>
+            <p class="tipo" id='plan' ></p>
+            <a href="#" class="btn-user">Change Plan</a>
         </div>
     </div>
     <footer>
