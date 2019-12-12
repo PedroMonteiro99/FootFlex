@@ -4,8 +4,10 @@ window.onload = function(){
         url: '/api/users', //Igual ao que está no app.js
         method: 'get',
         success: function(result,status){
-            users= result;
+            users= result[0].ID;
             console.log(users);
+            console.log(users +1);
+            
         },
         error: function(){
             console.log('Error');

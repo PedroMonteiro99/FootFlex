@@ -1,12 +1,12 @@
 var mysql = require('./connection').pool;
 
-module.exports.getAll = function (callback, next) {
+module.exports.getMaxId = function (callback, next) {
     mysql.getConnection(function (err, conn) {
         if (err) {
             conn.release();
             next(err);
         }
-        else conn.query("Select * from Cliente", function (err, rows) {
+        else conn.query("SELECT MAX(idPacote) as ID FROM Pacote", function (err, rows) {
             conn.release();
             callback(rows);
         })
@@ -39,7 +39,7 @@ module.exports.register = function (obj, callback, next) {
             conn.release();
             next(err);
         }
-        else conn.query('INSERT INTO Cliente(Username, Email,Password,Pacote_idPacote) VALUES (?,?,?,?)', [obj.Username, obj.Email, obj.Password, obj.idpacote], function (err, rows) {
+        else conn.query('INSERT INTO Cliente(Username, Email,Password) VALUES (?,?,?,?)', [obj.Username, obj.Email, obj.Password], function (err, rows) {
             conn.release();
             callback(rows);
         })
@@ -53,7 +53,7 @@ module.exports.authentication = function (callback, next) {
             conn.release();
             next(err);
         }
-        else conn.query("SELECT username,Nome,Liga,Desporto FROM Cliente,Pacote where Pacote_idPacote=idPacote", function (err, rows) {
+        else conn.query("SELECT Username,Nome,Liga,Desporto FROM Cliente,Cliente_has_Pacote,Pacote where Cliente_idCliente = idCliente and Pacote_idPacote = idPacote", function (err, rows) {
             conn.release();
             callback(rows);
         })
@@ -66,7 +66,7 @@ module.exports.getUserDetails = function (callback, next) {
             conn.release();
             next(err);
         }
-        else conn.query("SELECT Username, Email,Nome from Cliente, Pacote where Pacote_idPacote = idPacote", function (err, rows) {
+        else conn.query("SELECT Username, Email,Nome from Cliente,Cliente_has_Pacote,Pacote where Pacote_idPacote = idPacote", function (err, rows) {
             conn.release();
             callback(rows);
         })

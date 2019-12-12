@@ -55,7 +55,7 @@
       }
       highlightLayer.openPopup();
     }
-    var map = L.map('map').setView([39.4696777,-9.2004369], 7.42);
+    var map = L.map('map').setView([39.4696777, -9.2004369], 7.42);
 
     var hash = new L.Hash(map);
 
@@ -104,14 +104,23 @@
       var lat = data[0].lat
       var long = data[0].lon
       console.log(lat + ',' + long)
-      var control = L.Routing.control({
-        waypoints: [
-          L.latLng(lat, long),
-          L.latLng(57.6792, 11.949)
-        ],
-        routeWhileDragging: true,
-        geocoder: L.Control.Geocoder.nominatim()
-      }).addTo(map);
+
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+          console.log(position);
+          var control = L.Routing.control({
+            waypoints: [
+              L.latLng(lat, long),
+              L.latLng(position.coords.latitude, position.coords.longitude)
+            ],
+            routeWhileDragging: true,
+            geocoder: L.Control.Geocoder.nominatim()
+          }).addTo(map);
+        })
+      }
+      else {
+        alert('Geolocation is not supported')
+      }
     });
 
 

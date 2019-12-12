@@ -13,7 +13,7 @@ window.onload = function authenticate() {
             users = result;
             console.log(users)
             for (i in users) {
-                if (users[i].username == utilizador) {
+                if (users[i].Username == utilizador) {
                     desporto = users[i].Desporto;
                     liga = users[i].Liga;
                     pacote = users[i].Nome;

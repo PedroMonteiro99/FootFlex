@@ -1,41 +1,10 @@
-function entrar() {
-    var username = document.getElementById("nome").value
-    var password = document.getElementById("palavra").value
-    if (username == "Pedro" && password == "Pedro99") {
-        alert('You sucessfuly logged in!')
-        window.location = "main.html"
-    }
-    else {
-        Swal.fire({
-            title: 'Oops...',
-            text: 'Your Username or Password is incorrect!',
-        })
-    }
-}
-
-function registar() {
-    var username = document.getElementById("name").value
-    var password = document.getElementById("pass").value
-    var email = document.getElementById("email").value
-    if (!(username == "" || password == "" || email == "")) {
-        alert("You will be redirected to another page to insert account payment details!")
-        window.location = "register.html"
-    }
-    else {
-        Swal.fire({
-            title: 'Oops...',
-            text: 'Values are empty please insert your data!',
-        })
-    }
-}
-
 function sub() {
     var password = document.getElementById("pass").value
     var numero = document.getElementById("iban").value
     var selecionar = document.getElementById("select").value
     if (!(password == "" || numero == "" || selecionar == "")) {
         alert("You created an account! Welcome to FootFlex.")
-        window.location = "main.html"
+        window.location = "login.html"
     }
     else {
         Swal.fire({

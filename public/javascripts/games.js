@@ -11,7 +11,7 @@ window.onload = function authenticate() {
             users = result;
             console.log(users)
             for (i in users) {
-                if (users[i].username == utilizador) {
+                if (users[i].Username == utilizador) {
                     if (users[i].Nome == 'Sports') { //Block pelo Pacote Sports
                         if (users[i].Desporto == 'Football') {
                             $("#basketball").hide();

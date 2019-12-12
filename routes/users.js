@@ -3,7 +3,7 @@ var router = express.Router();
 var usersDAO = require('../models/userDAO');
 
 router.get('/', function (req, res, next) {
-  usersDAO.getAll(function (result) {
+  usersDAO.getMaxId(function (result) {
     res.send(result);
   });
 });

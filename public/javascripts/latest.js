@@ -6,8 +6,9 @@ window.onload = function authenticate() {
         success: function (result, status) {
             users = result;
             console.log(users)
+            console.log(users[0].Username)
             for (i in users) {
-                if (users[i].username == utilizador) {
+                if (users[i].Username == utilizador) {
                     if (users[i].Nome == 'Sports') { //Block pelo Pacote Sports
                         if (users[i].Desporto == 'Football') {
                             $("#basketball").hide();
