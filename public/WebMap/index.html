@@ -99,6 +99,7 @@
       return vars;
     }
     var x = getUrlVars()['mark']
+    console.log(x)
 
     $.getJSON("https://nominatim.openstreetmap.org/search/" + x + "?format=json", function (data) { //Get latLng from main stadium
       var lat = data[0].lat
@@ -107,15 +108,32 @@
 
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
-          console.log(position);
+          var waypoints = [L.latLng(lat, long), L.latLng(position.coords.latitude, position.coords.longitude)]
           var control = L.Routing.control({
-            waypoints: [
-              L.latLng(lat, long),
-              L.latLng(position.coords.latitude, position.coords.longitude)
-            ],
+            plan: L.Routing.plan(waypoints, {
+              createMarker: function (i, wp, nWps) {
+                if (i == 0) {
+                  return L.marker(wp.latLng, { draggable: true }).bindPopup('Your nearest Stadium/Ticket office').openPopup();
+                }
+                if (i == 1) {
+                  return L.marker(wp.latLng, { draggable: true }).bindPopup('Your Current Location').openPopup();
+                }
+              },
+              geocoder: L.Control.Geocoder.nominatim(),
+              routeWhileDragging: true
+            }),
             routeWhileDragging: true,
-            geocoder: L.Control.Geocoder.nominatim()
-          }).addTo(map);
+            routeDragTimeout: 250,
+            showAlternatives: true,
+            altLineOptions: {
+              styles: [
+                { color: 'black', opacity: 0.15, weight: 9 },
+                { color: 'white', opacity: 0.8, weight: 6 },
+                { color: 'blue', opacity: 0.5, weight: 2 }
+              ]
+            }
+          })
+            .addTo(map)
         })
       }
       else {

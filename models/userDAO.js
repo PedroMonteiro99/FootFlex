@@ -1,6 +1,6 @@
 var mysql = require('./connection').pool;
 
-module.exports.getMaxId = function (callback, next) {
+module.exports.getMaxId = function (callback, next) { //Alterar
     mysql.getConnection(function (err, conn) {
         if (err) {
             conn.release();
@@ -39,7 +39,7 @@ module.exports.register = function (obj, callback, next) {
             conn.release();
             next(err);
         }
-        else conn.query('INSERT INTO Cliente(Username, Email,Password) VALUES (?,?,?,?)', [obj.Username, obj.Email, obj.Password], function (err, rows) {
+        else conn.query('INSERT INTO Cliente(Username, Email,Password) VALUES (?,?,?)', [obj.Username, obj.Email, obj.Password], function (err, rows) {
             conn.release();
             callback(rows);
         })

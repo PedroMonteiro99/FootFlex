@@ -103,7 +103,7 @@ $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=444
                     info = equipa.teams[i].strStadium
                 }
             }
-            window.open('WebMap/index.html?mark=' + info, '_blank', 'height=100', 'width=400')
+            window.open('WebMap/index.html?mark=' + info + '%20China', '_blank', 'height=100', 'width=400')
         });
     });
 });
@@ -144,7 +144,7 @@ $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=433
                     info = equipa.teams[i].strStadium
                 }
             }
-            window.open('WebMap/index.html?mark=' + info, '_blank', 'height=100', 'width=400')
+            window.open('WebMap/index.html?mark=' + info+'%20Spain', '_blank', 'height=100', 'width=400')
         });
     });
 });
@@ -182,14 +182,19 @@ $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=434
             var info = '';
             var i = 0;
             for (var i = 0; i < equipa.teams.length; i++) {
+                console.log(equipa.teams[i].strTeam+' - '+equipa.teams[i].strStadium )
                 if(id == 'Sporting Lisbon'){
                     id = 'Sporting CP';
                 }
+                if(id == 'Benfica '){
+                    id = 'Benfica';
+                }
                 else if (equipa.teams[i].strTeam == id) {
-                    info = equipa.teams[i].strStadium
+                    info = equipa.teams[i].strStadium                  
                 }
             }
-            window.open('WebMap/index.html?mark=' + info, '_blank', 'height=100', 'width=400')
+            console.log(info)
+            window.open('WebMap/index.html?mark=' + info+'%20Portugal', '_blank', 'height=100', 'width=400')
         });
     });
 });
@@ -233,7 +238,7 @@ $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=432
                     info = equipa.teams[i].strStadium
                 }     
             }
-            window.open('WebMap/index.html?mark=' + info, '_blank', 'height=100', 'width=400')
+            window.open('WebMap/index.html?mark=' + info+'%20England', '_blank', 'height=100', 'width=400')
         });
     });
 });
@@ -274,7 +279,7 @@ $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=440
                     info = equipa.teams[i].strStadium
                 }
             }
-            window.open('WebMap/index.html?mark=' + info, '_blank', 'height=100', 'width=400')
+            window.open('WebMap/index.html?mark=' + info+'%20Spain', '_blank', 'height=100', 'width=400')
         });
     });
 });
@@ -315,7 +320,7 @@ $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=438
                     info = equipa.teams[i].strStadium
                 }
             }
-            window.open('WebMap/index.html?mark=' + info, '_blank', 'height=100', 'width=400')
+            window.open('WebMap/index.html?mark=' + info+'%20United%20States', '_blank', 'height=100', 'width=400')
         });
     });
 });
@@ -356,7 +361,7 @@ $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=438
                 if (equipa.teams[i].strTeam == id) {
                     info = equipa.teams[i].strStadium
                     console.log(info)
-                    window.open('WebMap/index.html?mark=' + info, '_blank', 'height=100', 'width=400')
+                    window.open('WebMap/index.html?mark=' + info+'%20United%20States', '_blank', 'height=100', 'width=400')
                 }
             }
            
@@ -401,7 +406,7 @@ $.getJSON("https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=438
                     info = equipa.teams[i].strStadium
                 }
             }
-            window.open('WebMap/index.html?mark=' + info, '_blank', 'height=100', 'width=400')
+            window.open('WebMap/index.html?mark=' + info+'%20England', '_blank', 'height=100', 'width=400')
         });
     })
 });
