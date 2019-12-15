@@ -1,18 +1,61 @@
+var id;
+window.onload = function () {
+    var username = localStorage.getItem('Username')
+    $.ajax({
+        url: '/api/users', //Igual ao que está no app.js
+        method: 'get',
+        success: function (result, status) {
+            console.log(result)
+            for(i in result){
+                if (result[i].Username==username){
+                    id=result[i].idCliente
+                    console.log(id)
+                }
+            }
+        },
+        error: function () {
+            console.log('Error');
+        }
+    })
+}
+
+
+
 function sub() {
+    var username = localStorage.getItem('Username')
     var password = document.getElementById("pass").value
     var numero = document.getElementById("iban").value
     var selecionar = document.getElementById("select").value
-    if (!(password == "" || numero == "" || selecionar == "")) {
-        alert("You created an account! Welcome to FootFlex.")
-        window.location = "login.html"
-    }
-    else {
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Values are empty please insert your data!',
-        })
-    }
+    $.ajax({
+        url: '/api/users/check', //Igual ao que está no app.js
+        method: 'post',
+        data: {
+            Username: username,
+            Password: document.getElementById("pass").value,
+        },
+        success: function (result, status) {
+            console.log('Password is equal!')
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(password)
+            alert('Password does not match!')
+        }
+    })
+    $.ajax({
+        url: '/api/users/credit', //Igual ao que está no app.js
+        method: 'put',
+        data: {
+            Card: numero,
+            Id:id,
+        },
+        success: function (result, status) {
+            console.log('Updated Credit Card Value')
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log('Error')
+        }
+    })
+    
 }
 
 function getinfo() {

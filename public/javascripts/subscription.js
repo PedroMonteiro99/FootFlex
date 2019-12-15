@@ -1,20 +1,3 @@
-var users;
-window.onload = function(){
-    $.ajax({
-        url: '/api/users', //Igual ao que está no app.js
-        method: 'get',
-        success: function(result,status){
-            users= result[0].ID;
-            console.log(users);
-            console.log(users +1);
-            
-        },
-        error: function(){
-            console.log('Error');
-        }
-    })
-}
-
 function entrar(){
     $.ajax({
         url: '/api/users/login', //Igual ao que está no app.js
@@ -36,4 +19,25 @@ function entrar(){
             console.log(errorThrown);
         }
     })
+}
+
+function registar(){
+    $.ajax({
+        url: '/api/users/register', //Igual ao que está no app.js
+        method: 'post',
+        data:{
+            Username:document.getElementById("name").value,
+            Email:document.getElementById("email").value,
+            Password:document.getElementById("pass").value,
+        },
+        success: function(result,status){
+            console.log('Success')
+            localStorage.setItem("Username",document.getElementById("name").value);
+            window.location = "register.html";
+        },
+        error: function(jqXHR,textStatus,errorThrown ){
+            console.log(errorThrown);
+        }
+    })
+
 }
