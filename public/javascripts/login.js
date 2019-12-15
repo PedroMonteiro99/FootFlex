@@ -1,4 +1,6 @@
 var id;
+var text;
+var first;
 window.onload = function () {
     var username = localStorage.getItem('Username')
     $.ajax({
@@ -6,9 +8,9 @@ window.onload = function () {
         method: 'get',
         success: function (result, status) {
             console.log(result)
-            for(i in result){
-                if (result[i].Username==username){
-                    id=result[i].idCliente
+            for (i in result) {
+                if (result[i].Username == username) {
+                    id = result[i].idCliente
                     console.log(id)
                 }
             }
@@ -26,6 +28,23 @@ function sub() {
     var password = document.getElementById("pass").value
     var numero = document.getElementById("iban").value
     var selecionar = document.getElementById("select").value
+    if (selecionar == 'All in One') {
+        selecionar = 2
+        text=undefined;
+        first=undefined;
+    }
+    else if (selecionar == 'Sports') {
+        selecionar = 3
+        text=undefined;
+        first=document.getElementById("change").value;
+    }
+    else {
+        var someString = document.getElementById("change").value;
+        var index = someString.indexOf("-");
+        first = someString.substr(0, index);
+        text = someString.substr(index + 1);
+        selecionar = 1
+    }
     $.ajax({
         url: '/api/users/check', //Igual ao que está no app.js
         method: 'post',
@@ -37,7 +56,6 @@ function sub() {
             console.log('Password is equal!')
         },
         error: function (jqXHR, textStatus, errorThrown) {
-            console.log(password)
             alert('Password does not match!')
         }
     })
@@ -46,7 +64,7 @@ function sub() {
         method: 'put',
         data: {
             Card: numero,
-            Id:id,
+            Id: id,
         },
         success: function (result, status) {
             console.log('Updated Credit Card Value')
@@ -55,7 +73,29 @@ function sub() {
             console.log('Error')
         }
     })
-    
+    $.ajax({
+        url: '/api/users/pacote', //Igual ao que está no app.js
+        method: 'post',
+        data: {
+            Id: id,
+            Pacote: selecionar,
+            Liga: text,
+            Desporto: first,
+        },
+        success: function (result, status) {
+            console.log('Updated Plan')
+            console.log(id)
+            console.log(selecionar)
+            console.log(text)
+            console.log(first)
+            alert('You have successfully registered in FootFlex!')
+            window.location = 'login.html'
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log('Error')
+        }
+    })
+
 }
 
 function getinfo() {
@@ -74,7 +114,7 @@ function getinfo() {
         option.text = "Ice Hockey";
         y.add(option);
         var option = document.createElement("option");
-        option.text = "Basket";
+        option.text = "Basketball";
         y.add(option);
     }
     else if (x == "League") {
@@ -84,28 +124,28 @@ function getinfo() {
             select.remove(i);
         }
         var option = document.createElement("option");
-        option.text = "Football - Liga Nos";
+        option.text = "Football-Liga Nos";
         y.add(option);
         var option = document.createElement("option");
-        option.text = "Football - Premier League";
+        option.text = "Football-Premier League";
         y.add(option);
         var option = document.createElement("option");
-        option.text = "Football - La Liga";
+        option.text = "Football-La Liga";
         y.add(option);
         var option = document.createElement("option");
-        option.text = "Ice Hockey - NHL";
+        option.text = "Ice Hockey-NHL";
         y.add(option);
         var option = document.createElement("option");
-        option.text = "Ice Hockey - UK Elite League ";
+        option.text = "Ice Hockey-UK Elite League ";
         y.add(option);
         var option = document.createElement("option");
-        option.text = "Basket - NBA";
+        option.text = "Basket-NBA";
         y.add(option);
         var option = document.createElement("option");
-        option.text = "Basket - Chinese League";
+        option.text = "Basket-Chinese League";
         y.add(option);
         var option = document.createElement("option");
-        option.text = "Basket - Liga Endesa";
+        option.text = "Basket-Liga Endesa";
         y.add(option);
     }
     else if (x == "All in One") {
