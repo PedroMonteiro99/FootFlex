@@ -27,7 +27,7 @@ Requisitos Funcionais:
 | FR06 | Ver Stream | O utilizador consegue visualizar os jogos em "direto" | Alta | 25/10/19 |
 | FR07 | Login | O utilizador consegue fazer login na aplicação | Média | 15/10/19 |
 
-Requisitos Nãp-Funcionais:
+Requisitos Não-Funcionais:
 
 | #    | Requisitos      | Prioridade |
 |------|-----------------|------------|
