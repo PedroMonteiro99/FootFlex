@@ -29,6 +29,7 @@ app.use('/api/users/register', usersRouter);
 app.use('/api/users/pacote', usersRouter);
 app.use('/api/users/credit', usersRouter);
 app.use('/api/users/check', usersRouter);
+app.use('/api/users/updateClient', usersRouter);
 app.use('/api/livegames/', liveRouter);
 
 // catch 404 and forward to error handler

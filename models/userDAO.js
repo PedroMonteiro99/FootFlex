@@ -117,3 +117,16 @@ module.exports.getUserDetails = function (callback, next) {
         })
     })
 }
+
+module.exports.updateUserDetails = function (obj, callback, next) {
+    mysql.getConnection(function (err, conn) {
+        if (err) {
+            conn.release();
+            next(err);
+        }
+        else conn.query('UPDATE Cliente SET Email=?,Password=? WHERE Cliente.idCliente=?', [obj.Email,obj.Password, obj.Id], function (err, rows) {
+            conn.release();
+            callback(rows);
+        })
+    })
+}

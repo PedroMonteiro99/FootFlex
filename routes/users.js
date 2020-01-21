@@ -60,4 +60,10 @@ router.post('/check', function (req, res, next) {
   });
 });
 
+router.put('/updateClient', function (req, res, next) {
+  usersDAO.updateUserDetails(req.body, function (result) {
+    res.send(result);
+  });
+});
+
 module.exports = router;
