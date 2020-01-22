@@ -46,7 +46,7 @@ function sub() {
         selecionar = 1
     }
     $.ajax({
-        url: '/api/users/check', //Igual ao que está no app.js
+        url: '/api/plan/check', //Igual ao que está no app.js
         method: 'post',
         data: {
             Username: username,
@@ -60,7 +60,7 @@ function sub() {
         }
     })
     $.ajax({
-        url: '/api/users/credit', //Igual ao que está no app.js
+        url: '/api/plan/credit', //Igual ao que está no app.js
         method: 'put',
         data: {
             Card: numero,
@@ -74,7 +74,7 @@ function sub() {
         }
     })
     $.ajax({
-        url: '/api/users/pacote', //Igual ao que está no app.js
+        url: '/api/plan/pacote', //Igual ao que está no app.js
         method: 'post',
         data: {
             Id: id,

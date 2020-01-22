@@ -13,7 +13,6 @@ window.onload = function () {
         url: '/api/users', //Igual ao que está no app.js
         method: 'get',
         success: function (result, status) {
-            console.log(result)
             for (i in result) {
                 if (result[i].Username == username) {
                     id = result[i].idCliente
@@ -30,7 +29,7 @@ window.onload = function () {
         url: '/api/users/details', //Igual ao que está no app.js
         method: 'get',
         success: function (result, status) {
-            users = result;
+            var users = result;
             var nome = localStorage.getItem("username")
             for (i in users) {
                 if (users[i].Username == nome) {
@@ -54,7 +53,7 @@ window.onload = function () {
 
 function verificar(){
     $.ajax({
-        url: '/api/users/login', //Igual ao que está no app.js
+        url: '/api/authen/login', //Igual ao que está no app.js
         method: 'post',
         data:{
             Username:document.getElementById("username").value,

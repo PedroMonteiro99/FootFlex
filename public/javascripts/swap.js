@@ -6,7 +6,7 @@ window.onload = function authenticate() {
     var utilizador = localStorage.getItem("username")
     console.log(utilizador)
     $.ajax({
-        url: '/api/users/authentication', //Igual ao que está no app.js
+        url: '/api/authen/authentication', //Igual ao que está no app.js
         method: 'get',
         success: function (result, status) {
             users = result;

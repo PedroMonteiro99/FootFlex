@@ -7,6 +7,8 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var liveRouter = require('./routes/live')
+var authenRouter = require('./routes/authen')
+var planRouter = require('./routes/plan')
 
 var app = express();
 
@@ -22,13 +24,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/api/users', usersRouter);
-app.use('/api/users/authentication', usersRouter);
-app.use('/api/users/login', usersRouter);
+app.use('/api/authen/', authenRouter);
+app.use('/api/authen/login', authenRouter);
 app.use('/api/users/details', usersRouter);
-app.use('/api/users/register', usersRouter);
-app.use('/api/users/pacote', usersRouter);
-app.use('/api/users/credit', usersRouter);
-app.use('/api/users/check', usersRouter);
+app.use('/api/authen/register', authenRouter);
+app.use('/api/plan/', planRouter);
+app.use('/api/plan/credit', planRouter);
+app.use('/api/plan/check', planRouter);
 app.use('/api/users/updateClient', usersRouter);
 app.use('/api/livegames/', liveRouter);
 

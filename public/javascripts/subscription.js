@@ -1,6 +1,6 @@
 function entrar(){
     $.ajax({
-        url: '/api/users/login', //Igual ao que está no app.js
+        url: '/api/authen/login', //Igual ao que está no app.js
         method: 'post',
         data:{
             Username:document.getElementById("nome").value,
@@ -23,7 +23,7 @@ function entrar(){
 
 function registar(){
     $.ajax({
-        url: '/api/users/register', //Igual ao que está no app.js
+        url: '/api/authen/register', //Igual ao que está no app.js
         method: 'post',
         data:{
             Username:document.getElementById("name").value,
