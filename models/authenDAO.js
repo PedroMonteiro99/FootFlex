@@ -29,6 +29,12 @@ module.exports.register = function (obj, callback, next) {
         else conn.query('INSERT INTO Cliente(Username, Email,Password) VALUES (?,?,?)', [obj.Username, obj.Email, obj.Password], function (err, rows) {
             conn.release();
             callback(rows);
+            if (!(rows.length === 0)) {
+                callback({ code: 200, status: "Ok" }, rows);
+            }
+            else {
+                callback({ code: 500, status: "Unable to register" }, null);
+            }
         })
     })
 }
@@ -42,6 +48,12 @@ module.exports.authentication = function (callback, next) {
         else conn.query("SELECT Username,Nome,Liga,Desporto FROM Cliente,Cliente_has_Pacote,Pacote where Cliente_idCliente = idCliente and Pacote_idPacote = idPacote", function (err, rows) {
             conn.release();
             callback(rows);
+            if (!(rows.length === 0)) {
+                callback({ code: 200, status: "Ok" }, rows);
+            }
+            else {
+                callback({ code: 404, status: "User does not have a plan" }, null);
+            }
         })
     })
 }
