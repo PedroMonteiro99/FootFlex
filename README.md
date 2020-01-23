@@ -1,7 +1,7 @@
 # FootFlex
 Best sports site at the lowest cost possible
 
-Enquadramento
+# Enquadramento
 
 
 Esta ideia apareceu por necessidade própria. O aparecimento de várias plataformas online de grande sucesso como a Netflix e a HBO, fez-nos pensar numa nova plataforma. A facilidade de acesso e o custo não muito elevado que caracterizam estas plataformas são exatamente as características que faltam no mundo atual da transmissão de desporto. Hoje em dia para ser possível visualizar todos os jogos do nosso clube favorito temos que ser assinantes de diversos canais diferentes e com um peso grande nas nossas carteiras. Se, hipoteticamente, o nosso clube preferido for o SL Benfica e quisermos assistir aos jogos da Champions League, seria preciso sermos assinante dos seguintes canais:	
@@ -12,10 +12,10 @@ Acreditamos que uma abordagem nova e tecnológica possa solucionar este problema
 
 
 
-Cenário Principal:
+# Cenário Principal:
 Assumindo que o utilizador já se encontra com o login efetuado e com uma subscrição escolhida, o utilizador está na homepage e seleciona no menu a opção “Live”. Na nova página, terá uma lista de jogos a decorrer no momento dependendo do pacote escolhido anteriormente. Ao clicar num dos jogos abrirá uma nova janela com a exibição do jogo ao vivo.
 
-Requisitos Funcionais:
+# Requisitos Funcionais:
 
 | # | Requisitos | Descrição | Prioridade | Data de conclusão |
 |------|--------------------|--------------------------------------------------------------------------------------|------------|-------------------|
@@ -27,7 +27,7 @@ Requisitos Funcionais:
 | FR06 | Ver Stream | O utilizador consegue visualizar os jogos em "direto" | Alta | 25/10/19 |
 | FR07 | Login | O utilizador consegue fazer login na aplicação | Média | 15/10/19 |
 
-Requisitos Não-Funcionais:
+# Requisitos Não-Funcionais:
 
 | #    | Requisitos      | Prioridade |
 |------|-----------------|------------|
