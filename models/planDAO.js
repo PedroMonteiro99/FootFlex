@@ -8,9 +8,8 @@ module.exports.pacote = function (obj, callback, next) {
         }
         else conn.query('INSERT INTO Cliente_has_Pacote(Cliente_idCliente, Pacote_idPacote, Liga, Desporto) VALUES (?,?,?,?)', [obj.Id, obj.Pacote, obj.Liga, obj.Desporto], function (err, rows) {
             conn.release();
-            callback(rows);
             if (!(rows.length === 0)) {
-                callback({ code: 200, status: "Ok" }, rows);
+                callback(rows,{ code: 200, status: "Ok" });
             }
             else {
                 callback({ code: 500, status: "Could not complete action" }, null);
@@ -27,9 +26,8 @@ module.exports.updateCredit = function (obj, callback, next) {
         }
         else conn.query('UPDATE Cliente SET DebitCard=? WHERE Cliente.idCliente=?', [obj.Card, obj.Id], function (err, rows) {
             conn.release();
-            callback(rows);
             if (!(rows.length === 0)) {
-                callback({ code: 200, status: "Ok" }, rows);
+                callback(rows,{ code: 200, status: "Ok" });
             }
             else {
                 callback({ code: 500, status: "Failed to update" }, null);
@@ -49,7 +47,7 @@ module.exports.checkValues = function (obj, callback, next) {
             console.log(obj);
             conn.release();
             if (!(rows.length === 0)) {
-                callback({ code: 200, status: "Ok" }, rows);
+                callback(rows,{ code: 200, status: "Ok" });
             }
             else {
                 callback({ code: 401, status: "Password does not match" }, null);

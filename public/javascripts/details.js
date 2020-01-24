@@ -82,6 +82,21 @@ function alterar(){
             Id: id,
         },
         success: function (result, status) {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                onOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+            Toast.fire({
+                icon: 'success',
+                title: 'You successfully updated your user details!'
+            })
             console.log('Updated User Details')
         },
         error: function (jqXHR, textStatus, errorThrown) {
