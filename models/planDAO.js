@@ -26,12 +26,7 @@ module.exports.updateCredit = function (obj, callback, next) {
         }
         else conn.query('UPDATE Cliente SET DebitCard=? WHERE Cliente.idCliente=?', [obj.Card, obj.Id], function (err, rows) {
             conn.release();
-            if (!(rows.length === 0)) {
-                callback(rows,{ code: 200, status: "Ok" });
-            }
-            else {
-                callback({ code: 500, status: "Failed to update" }, null);
-            }
+            callback(rows)
         })
     })
 }
