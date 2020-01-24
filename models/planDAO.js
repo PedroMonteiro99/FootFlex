@@ -47,7 +47,7 @@ module.exports.checkValues = function (obj, callback, next) {
             console.log(obj);
             conn.release();
             if (!(rows.length === 0)) {
-                callback(rows,{ code: 200, status: "Ok" });
+                callback({ code: 200, status: "Ok" },rows);
             }
             else {
                 callback({ code: 401, status: "Password does not match" }, null);
